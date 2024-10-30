@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1730315276 source:c:\users\migue\onedrive\escritorio\archivos\productis\tienda\producto.cpp
+	<iostream>
+	"Producto.h"
+
+1730323222 c:\users\migue\onedrive\escritorio\archivos\productis\tienda\producto.h
+
+1730314070 source:c:\users\migue\onedrive\escritorio\archivos\productis\tienda\main.cpp
+	<iostream>
+	"Menu.h"
+
+1730323455 c:\users\migue\onedrive\escritorio\archivos\productis\tienda\menu.h
+	<iostream>
+	"Menu.h"
+
+1730315422 source:c:\users\migue\onedrive\escritorio\archivos\productis\tienda\menu.cpp
+	<iostream>
+	"Menu.h"
+
