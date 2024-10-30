@@ -6,7 +6,7 @@
     int opcion;
 
     do {
-
+    std::cout << "Probandoo" << std::endl;
     std::cout << "Bienvenido a la tienda..." << std::endl;
     std::cout << "Ingrese la opcion deseada." << std::endl;
     std::cout << "------------------------------------" << std::endl;
