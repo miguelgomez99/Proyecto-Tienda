@@ -1,23 +1,23 @@
 #include "Menu.h"
 #include "Proveedores.h"
-
+#include <cstring>
+#include <iostream>
 
     // constructor
     Proveedores::Proveedores(){
-    _Nombre="vacio";
-    _Contacto="vacio";
-    _Cuit="vacio";
-    _Producto="vacio";
+    strcpy(_Nombre, "vacio");
+    strcpy(_Contacto, "vacio");
+    strcpy(_Cuit, "vacio");
+    strcpy(_Producto, "vacio");
     }
 
 
      void Proveedores::AgregarProveedores(){
 
-        std::string nombre, contacto, cuit, producto;
+
 
         std::cout << "Ingrese el nombre del proveedor: " << std::endl;
-        std::cin >> nombre;
-        _Nombre=nombre;
+        Proveedores.setNombre();
 
         std::cout << "Ingrese el contacto del proveedor: " << std::endl;
         std::cin >> contacto;
@@ -72,41 +72,38 @@
     }
 
 
-
-
-
     // setters
-    void Proveedores::setNombre (std::string nombre){
-        _Nombre=nombre;
+    void Proveedores::setNombre (const char nombre[]){
+        strcpy(_Nombre, nombre);
     }
 
-    void Proveedores::setContacto (std::string contacto){
-        _Contacto=contacto;
+    void Proveedores::setContacto (const char contacto[]){
+        strcpy(_Contacto, contacto);
     }
 
-    void Proveedores::setCuit (std::string cuit){
-        _Cuit=cuit;
+    void Proveedores::setCuit (const char cuit[]){
+        strcpy(_Cuit, cuit);
     }
 
-    void Proveedores::setProducto (std::string producto){
-        _Producto=producto;
+    void Proveedores::setProducto (const char producto[]){
+        strcpy(_Producto, producto);
     }
 
 
     // getters
-    std::string Proveedores::getNombre (){
+    const char* Proveedores::getNombre (){
         return _Nombre;
     }
 
-    std::string Proveedores::getContacto (){
+    const char* Proveedores::getContacto (){
         return _Contacto;
     }
 
-    std::string Proveedores::getCuit (){
+    const char* Proveedores::getCuit (){
         return _Cuit;
     }
 
-    std::string Proveedores::getProducto (){
+    const char* Proveedores::getProducto (){
         return _Producto;
     }
 

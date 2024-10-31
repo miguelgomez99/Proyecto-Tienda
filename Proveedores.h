@@ -4,10 +4,10 @@
 class Proveedores{
 private:
 
-    std::string _Nombre;
-    std::string _Contacto;
-    std::string _Cuit;
-    std::string _Producto;
+    char _Nombre[20];
+    char _Contacto[20];
+    char _Cuit[20];
+    char _Producto[20];
 
 public:
 
@@ -24,22 +24,22 @@ public:
     bool listarProveedores ();
 
     // setters
-    void setNombre (std::string nombre);
-    void setContacto (std::string contacto);
+    void setNombre (const char nombre);
+    void setContacto (const char contacto);
 
-    void setCuit (std::string cuit);
+    void setCuit (const char cuit);
 
-    void setProducto (std::string producto);
+    void setProducto (const char producto);
 
 
     // getters
-    std::string getNombre ();
+    const char* getNombre ();
 
-    std::string getContacto ();
+    const char* getContacto ();
 
-    std::string getCuit ();
+    const char* getCuit ();
 
-    std::string getProducto ();
+    const char* getProducto ();
 
 
 
