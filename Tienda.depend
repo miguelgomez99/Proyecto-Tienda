@@ -32,15 +32,17 @@
 	<iostream>
 	"Menu.h"
 
-1730414411 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
+1730416830 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
 
-1730416088 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
+1730416824 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
 	"Menu.h"
 
-1730414000 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
+1730416934 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
+	<cstring>
+	<iostream>
 

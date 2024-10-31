@@ -121,7 +121,7 @@
             case 3:
                 std::cout << "Ingrese los siguientes datos:" << std::endl;
                 proveedores.AgregarProveedores();
-                proveedores.guardarProveedores();
+                proveedores.guardarProveedores(proveedores);
                 break;
             case 0:
                 system ("cls");

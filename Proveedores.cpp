@@ -20,7 +20,9 @@
     char producto[20];
 
         std::cout << "Ingrese el nombre del proveedor: " << std::endl;
+        std::cin >> nombre;
         setNombre(nombre);
+
 
         std::cout << "Ingrese el contacto del proveedor: " << std::endl;
         std::cin >> contacto;
@@ -34,6 +36,7 @@
         std::cin >> producto;
         setProducto(producto);
 
+        system("cls");
     }
 
     // guardar datos
@@ -68,7 +71,7 @@
 
     Proveedores proveedores;
     while(fread(&proveedores, sizeof(Proveedores), 1, pFile)==1){
-        Proveedores.mostrarDatos();
+
     }
     fclose(pFile);
     return true;

@@ -19,7 +19,7 @@ public:
 
     // guardar datos
 
-    bool guardarProveedores();
+    bool guardarProveedores(Proveedores proveedores);
 
     bool listarProveedores();
 
