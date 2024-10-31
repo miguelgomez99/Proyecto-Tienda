@@ -5,10 +5,10 @@
 
     // constructor
     Proveedores::Proveedores(){
-    strcpy(_Nombre, "vacio");
-    strcpy(_Contacto, "vacio");
-    strcpy(_Cuit, "vacio");
-    strcpy(_Producto, "vacio");
+    strcpy(_Nombre, "vacio 3");
+    strcpy(_Contacto, "vacio 3");
+    strcpy(_Cuit, "vacio 3");
+    strcpy(_Producto, "vacio 3");
     }
 
 
@@ -39,8 +39,7 @@
         system("cls");
     }
 
-    // guardar datos
-
+    // GUARDADO DE DATOS
     bool Proveedores::guardarProveedores(Proveedores proveedores){
           FILE *pFile;
           pFile = fopen("Proveedores.dat", "ab");
@@ -61,6 +60,7 @@
     return escribio;
     }
 
+    //LISTADO DE PROVEEDORES
     bool Proveedores::listarProveedores (){
 
     FILE *pFile = fopen("Proveedores.dat", "rb");
@@ -71,10 +71,19 @@
 
     Proveedores proveedores;
     while(fread(&proveedores, sizeof(Proveedores), 1, pFile)==1){
-
+    proveedores.MostrarProveedores();
     }
     fclose(pFile);
     return true;
+    }
+
+
+    void Proveedores::MostrarProveedores (){
+        std::cout << "Nombre del proveedor: " << _Nombre << std::endl;
+        std::cout << "Contacto del proveedor: " << _Contacto << std::endl;
+        std::cout << "Cuit del proveedor: " << _Cuit << std::endl;
+        std::cout << "Producto del proveedor: " << _Producto << std::endl;
+
     }
 
 

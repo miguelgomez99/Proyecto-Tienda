@@ -113,7 +113,11 @@
 
         switch(opcion){
             case 1:
+                system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
+                proveedores.listarProveedores();
+                system ("pause");
+                system ("cls");
                 break;
             case 2:
                 std::cout << "Ingrese el cuit de los datos del proveedor que quiera modificar: " << std::endl;

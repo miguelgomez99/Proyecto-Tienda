@@ -23,6 +23,8 @@ public:
 
     bool listarProveedores();
 
+    void MostrarProveedores();
+
     // setters
     void setNombre (const char nombre[]);
     void setContacto (const char contacto[]);
