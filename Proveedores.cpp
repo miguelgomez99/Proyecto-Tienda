@@ -14,28 +14,31 @@
 
      void Proveedores::AgregarProveedores(){
 
-
+    char nombre[20];
+    char contacto[20];
+    char cuit[20];
+    char producto[20];
 
         std::cout << "Ingrese el nombre del proveedor: " << std::endl;
-        Proveedores.setNombre();
+        setNombre(nombre);
 
         std::cout << "Ingrese el contacto del proveedor: " << std::endl;
         std::cin >> contacto;
-        _Contacto=contacto;
+        setContacto(contacto);
 
         std::cout << "Ingrese el cuit del proveedor: " << std::endl;
         std::cin >> cuit;
-        _Cuit=cuit;
+        setCuit(cuit);
 
         std::cout << "Ingrese el producto del proveedor: " << std::endl;
         std::cin >> producto;
-        _Producto=producto;
+        setProducto(producto);
 
     }
 
     // guardar datos
 
-    bool Proveedores::guardarProveedores (Proveedores proveedores){
+    bool Proveedores::guardarProveedores(Proveedores proveedores){
           FILE *pFile;
           pFile = fopen("Proveedores.dat", "ab");
     if (pFile == nullptr) {

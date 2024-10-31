@@ -19,17 +19,17 @@ public:
 
     // guardar datos
 
-    bool guardarProveedores ();
+    bool guardarProveedores();
 
-    bool listarProveedores ();
+    bool listarProveedores();
 
     // setters
-    void setNombre (const char nombre);
-    void setContacto (const char contacto);
+    void setNombre (const char nombre[]);
+    void setContacto (const char contacto[]);
 
-    void setCuit (const char cuit);
+    void setCuit (const char cuit[]);
 
-    void setProducto (const char producto);
+    void setProducto (const char producto[]);
 
 
     // getters
