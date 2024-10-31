@@ -7,7 +7,6 @@
     int opcion;
   ///Prueba
     do {
-
     std::cout << "...Bienvenido a la tienda..." << std::endl;
     std::cout << "------Menu principal------" << std::endl;
     std::cout << "Ingrese la opcion deseada:" << std::endl;
@@ -93,8 +92,6 @@
         }
     } while(opcion!=0);
     }
-
-
 
     // SUBMENU PROVEEDORES
        void Menu::AdminProveedores(){
