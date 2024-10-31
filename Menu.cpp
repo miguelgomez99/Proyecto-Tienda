@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Menu.h"
+#include "Proveedores.h"
 
     // MENU PRINCIPAL
    void Menu::mostrarMenu (){
@@ -62,6 +63,7 @@
      // SUBMENU PRODUCTOS
    void Menu::AdminProductos(){
        int opcion;
+
     do {
         std::cout << "----Administracion de Productos----" << std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -97,6 +99,7 @@
     // SUBMENU PROVEEDORES
        void Menu::AdminProveedores(){
             int opcion;
+            Proveedores proveedores;
     do {
         std::cout << "----Administracion de Proveedores----"<< std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -117,6 +120,8 @@
                 break;
             case 3:
                 std::cout << "Ingrese los siguientes datos:" << std::endl;
+                proveedores.AgregarProveedores();
+                proveedores.guardarProveedores();
                 break;
             case 0:
                 system ("cls");

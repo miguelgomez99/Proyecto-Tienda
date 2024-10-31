@@ -36,6 +36,8 @@
 		<Unit filename="Menu.h" />
 		<Unit filename="Producto.cpp" />
 		<Unit filename="Producto.h" />
+		<Unit filename="Proveedores.cpp" />
+		<Unit filename="Proveedores.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
