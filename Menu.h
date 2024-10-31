@@ -10,6 +10,11 @@ private:
 public:
 
    void mostrarMenu ();
-   void gestionProducto();
+   void AdminProductos();
+   void AdminProveedores();
+   void AdminVentas();
+   void AdminPromociones();
+   void AdminConsultas();
+   void AdminReportes();
 
 };
