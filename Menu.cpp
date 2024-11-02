@@ -99,7 +99,7 @@
        void Menu::AdminProveedores(){
             int opcion;
             Proveedores proveedores;
-            Archivoproveedores archivoproveedores("Proveedores.dat");
+            Archivoproveedores archivoproveedores;
     do {
         std::cout << "----Administracion de Proveedores----"<< std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -120,11 +120,15 @@
                 break;
             case 2:
                 std::cout << "Ingrese el cuit de los datos del proveedor que quiera modificar: " << std::endl;
+                proveedores.modificarProveedores(proveedores);
+                proveedores.guardarProveedores(proveedores);
                 break;
             case 3:
                 std::cout << "Ingrese los siguientes datos:" << std::endl;
-                archivoproveedores.AgregarProveedores();
-                archivoproveedores.Guardar(proveedores);
+                //archivoproveedores.AgregarProveedores();
+                //archivoproveedores.Guardar(proveedores);
+                proveedores.AgregarProveedores();
+                proveedores.guardarProveedores(proveedores);
                 break;
             case 0:
                 system ("cls");

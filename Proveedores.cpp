@@ -130,7 +130,7 @@
 
     // MODIFICAR PROVEEDORES
 
-    bool Proveedores::modificarProveedores (const Proveedores &proveedors, int pos){
+    bool Proveedores::modificarProveedores (const Proveedores &proveedores, int pos){
 
         FILE *pModificar;
         pModificar = fopen ("Proveedores.dat", "rb+");
@@ -141,7 +141,7 @@
     }
     fseek (pModificar, pos*tamanioRegistro, 0);
 
-    bool escribio=fwrite (&proveedors, tamanioRegistro, 1, pModificar);
+    bool escribio=fwrite (&proveedores, tamanioRegistro, 1, pModificar);
 
     fclose (pModificar);
 

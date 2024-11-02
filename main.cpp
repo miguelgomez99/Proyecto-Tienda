@@ -10,7 +10,7 @@ int main()
 {
     Menu menu;
     Proveedores proveedores;
-    Archivoproveedores archivoproveedores("Proveedores.dat"); // Cambiado aquí
+    //Archivoproveedores archivoproveedores
     menu.mostrarMenu();
     return 0;
 }

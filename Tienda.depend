@@ -46,7 +46,7 @@
 	<cstring>
 	<iostream>
 
-1730574959 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\main.cpp
+1730575600 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\main.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -71,11 +71,11 @@
 	<cstring>
 	<iostream>
 
-1730575061 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
+1730575582 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
 	<string>
 	"Proveedores.h"
 
-1730574741 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
+1730575582 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"

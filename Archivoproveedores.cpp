@@ -2,8 +2,8 @@
 #include "Proveedores.h"
 #include "Archivoproveedores.h"
 
-Archivoproveedores::Archivoproveedores(const std::string& fileName) {
-    _fileName = fileName; // Asigna el nombre del archivo
+Archivoproveedores::Archivoproveedores(){
+  _fileName = "Proveedores.dat";
 }
 
  void Archivoproveedores::AgregarProveedores(Proveedores proveedores){

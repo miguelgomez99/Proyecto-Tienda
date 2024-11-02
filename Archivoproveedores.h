@@ -9,7 +9,7 @@ class Archivoproveedores{
         std::string _fileName;
 
     public:
-        Archivoproveedores(const std::string& fileName);
+        archivoproveedores();
         void AgregarProveedores();
         bool Guardar(Proveedores proveedores);
 };
