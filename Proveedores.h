@@ -25,6 +25,12 @@ public:
 
     void MostrarProveedores();
 
+    int buscarProveedores (const char cuit[]);
+
+    bool bajaRegistro ();
+
+    bool modificarProveedores (const Proveedores &proveedors, int pos);
+
     // setters
     void setNombre (const char nombre[]);
     void setContacto (const char contacto[]);

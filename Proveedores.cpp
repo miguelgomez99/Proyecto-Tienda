@@ -77,7 +77,49 @@
     return true;
     }
 
+    // BUSCAR REGISTRO
+    int Proveedores::buscarProveedores (const char* cuit){
 
+        FILE *pProv;
+        Proveedores proveedores;
+
+        int pos=0;
+
+        pProv = fopen ("Proveedores.dat", "rb");
+
+        if (pProv==nullptr){
+        std::cout << "No se pudo abrir el archivo" << std::endl;
+        return -2;
+    }
+
+    while (fread(&proveedores, sizeof(Proveedores), 1, pProv)==1){
+            if (getCuit()== cuit){
+                fclose(pProv);
+                return pos;
+
+            }
+            pos++;
+    }
+
+    fclose (pProv);
+    return -1;
+
+    }
+
+    // BAJA REGISTRO
+
+    bool Proveedores::bajaRegistro (){
+    Proveedores proveedores;
+    char cuit[20];
+    std::cout << "Ingresar cuit a dar de baja";
+    std::cin >> cuit;
+    int pos=buscarProveedores(cuit);
+
+    }
+
+
+
+    // MOSTRAR PROVEEDORES
     void Proveedores::MostrarProveedores (){
         std::cout << "Nombre del proveedor: " << _Nombre << std::endl;
         std::cout << "Contacto del proveedor: " << _Contacto << std::endl;
@@ -86,8 +128,30 @@
 
     }
 
+    // MODIFICAR PROVEEDORES
 
-    // setters
+    bool Proveedores::modificarProveedores (const Proveedores &proveedors, int pos){
+
+        FILE *pModificar;
+        pModificar = fopen ("Proveedores.dat", "rb+");
+
+        if (pModificar==nullptr){
+        std::cout << "No se pudo abrir el archivo" << std::endl;
+        return false;
+    }
+    fseek (pModificar, pos*tamanioRegistro, 0);
+
+    bool escribio=fwrite (&proveedors, tamanioRegistro, 1, pModificar);
+
+    fclose (pModificar);
+
+    return escribio;
+
+
+    }
+
+
+    // SETTERS
     void Proveedores::setNombre (const char nombre[]){
         strcpy(_Nombre, nombre);
     }
