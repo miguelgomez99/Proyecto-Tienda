@@ -46,3 +46,38 @@
 	<cstring>
 	<iostream>
 
+1730574959 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\main.cpp
+	<iostream>
+	"Menu.h"
+	"Proveedores.h"
+	"Archivoproveedores.h"
+
+1730414613 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.h
+	<iostream>
+	"Menu.h"
+
+1730569575 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.h
+	"Menu.h"
+
+1730324870 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.cpp
+	<iostream>
+	"Producto.h"
+
+1730324870 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.h
+
+1730569575 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.cpp
+	"Menu.h"
+	"Proveedores.h"
+	<cstring>
+	<iostream>
+
+1730575061 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
+	<string>
+	"Proveedores.h"
+
+1730574741 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
+	<iostream>
+	"Menu.h"
+	"Proveedores.h"
+	"Archivoproveedores.h"
+

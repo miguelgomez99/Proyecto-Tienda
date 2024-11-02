@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Menu.h"
 #include "Proveedores.h"
+#include "Archivoproveedores.h"
+
 
     // MENU PRINCIPAL
    void Menu::mostrarMenu (){
@@ -97,6 +99,7 @@
        void Menu::AdminProveedores(){
             int opcion;
             Proveedores proveedores;
+            Archivoproveedores archivoproveedores("Proveedores.dat");
     do {
         std::cout << "----Administracion de Proveedores----"<< std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -112,7 +115,6 @@
             case 1:
                 system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
-                proveedores.listarProveedores();
                 system ("pause");
                 system ("cls");
                 break;
@@ -121,8 +123,8 @@
                 break;
             case 3:
                 std::cout << "Ingrese los siguientes datos:" << std::endl;
-                proveedores.AgregarProveedores();
-                proveedores.guardarProveedores(proveedores);
+                archivoproveedores.AgregarProveedores();
+                archivoproveedores.Guardar(proveedores);
                 break;
             case 0:
                 system ("cls");
