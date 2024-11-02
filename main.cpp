@@ -9,8 +9,8 @@ int main()
 //xd
 {
     Menu menu;
-    Proveedores proveedores;
-    //Archivoproveedores archivoproveedores
+    Proveedores pr;
+    Archivoproveedores ap;
     menu.mostrarMenu();
     return 0;
 }

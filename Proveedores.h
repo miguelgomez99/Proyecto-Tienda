@@ -19,7 +19,7 @@ public:
 
     // guardar datos
 
-    bool guardarProveedores(Proveedores proveedores);
+   /* bool guardarProveedores(Proveedores proveedores);
 
     bool listarProveedores();
 
@@ -30,7 +30,7 @@ public:
     bool bajaRegistro ();
 
     bool modificarProveedores (const Proveedores &proveedors, int pos);
-
+*/
     // setters
     void setNombre (const char nombre[]);
     void setContacto (const char contacto[]);

@@ -2,6 +2,7 @@
 #include "Proveedores.h"
 #include <cstring>
 #include <iostream>
+#include "Archivoproveedores.h"
 
     // constructor
     Proveedores::Proveedores(){
@@ -38,7 +39,7 @@
 
         system("cls");
     }
-
+/*
     // GUARDADO DE DATOS
     bool Proveedores::guardarProveedores(Proveedores proveedores){
           FILE *pFile;
@@ -130,7 +131,7 @@
 
     // MODIFICAR PROVEEDORES
 
-    bool Proveedores::modificarProveedores (const Proveedores &proveedores, int pos){
+   /* bool Proveedores::modificarProveedores (const Proveedores &proveedores, int pos){
 
         FILE *pModificar;
         pModificar = fopen ("Proveedores.dat", "rb+");
@@ -149,7 +150,7 @@
 
 
     }
-
+*/
 
     // SETTERS
     void Proveedores::setNombre (const char nombre[]){

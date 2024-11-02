@@ -5,13 +5,11 @@
 
 /// SOLAMENTE LA CLASE DEL ARCHIVO DE PROVEEDORES
 class Archivoproveedores{
-    private:
-        std::string _fileName;
-
-    public:
-        archivoproveedores();
-        void AgregarProveedores();
-        bool Guardar(Proveedores proveedores);
+public:
+  Archivoproveedores();
+  bool Guardar(const Proveedores &registro);
+private:
+  std::string _fileName;
 };
 
 
