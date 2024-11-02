@@ -1,7 +1,6 @@
-#ifndef ARCHIVOPROVEEDORES_H_INCLUDED
-#define ARCHIVOPROVEEDORES_H_INCLUDED
+#pragma once
 #include <string>
-#include "Proveedores.h"
+#include "Menu.h"
 
 /// SOLAMENTE LA CLASE DEL ARCHIVO DE PROVEEDORES
 class Archivoproveedores{
@@ -13,4 +12,4 @@ private:
 };
 
 
-#endif // ARCHIVOPROVEEDORES_H_INCLUDED
+

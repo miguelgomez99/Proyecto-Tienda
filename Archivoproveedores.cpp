@@ -1,5 +1,7 @@
 #include "Menu.h"
 #include "Proveedores.h"
+#include <cstring>
+#include <iostream>
 
 Archivoproveedores::Archivoproveedores(){
   _fileName = "Proveedores.dat";
