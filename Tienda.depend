@@ -56,7 +56,7 @@
 	<iostream>
 	"Menu.h"
 
-1730580421 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.h
+1730582628 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.h
 	"Menu.h"
 
 1730324870 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.cpp
@@ -65,18 +65,18 @@
 
 1730324870 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.h
 
-1730578994 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.cpp
+1730582698 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
 	<cstring>
 	<iostream>
 	"Archivoproveedores.h"
 
-1730580713 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
+1730581591 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
 	<string>
 	"Menu.h"
 
-1730580061 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
+1730582038 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"

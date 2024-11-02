@@ -118,16 +118,16 @@
 
     }
 
-
+*/
 
     // MOSTRAR PROVEEDORES
-    void Proveedores::MostrarProveedores (){
-        std::cout << "Nombre del proveedor: " << _Nombre << std::endl;
-        std::cout << "Contacto del proveedor: " << _Contacto << std::endl;
-        std::cout << "Cuit del proveedor: " << _Cuit << std::endl;
-        std::cout << "Producto del proveedor: " << _Producto << std::endl;
-
-    }
+    /*
+void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
+    std::cout << "Nombre del proveedor: " << proveedor.getNombre() << std::endl;
+    std::cout << "Contacto del proveedor: " << proveedor.getContacto() << std::endl;
+    std::cout << "Cuit del proveedor: " << proveedor.getCuit() << std::endl;
+    std::cout << "Producto del proveedor: " << proveedor.getProducto() << std::endl;
+}
 
     // MODIFICAR PROVEEDORES
 
@@ -188,6 +188,12 @@
     }
 
 
+
+
+
+
+
+
 /// PRUEBA
 Archivoproveedores::Archivoproveedores(){
   _fileName = "Proveedores.dat";
@@ -209,4 +215,42 @@ bool Archivoproveedores::Guardar(const Proveedores &registro){
 
   return result;
 }
+
+Proveedores Archivoproveedores::leer(int pos){
+  FILE *pFile;
+  Proveedores registro;
+
+  pFile = fopen(_fileName.c_str(), "rb");
+
+  if(pFile == nullptr){
+      return registro;
+  }
+
+  fseek(pFile, sizeof(Proveedores) * pos, SEEK_SET);
+
+  fread(&registro, sizeof(Proveedores), 1, pFile);
+
+  fclose(pFile);
+
+  return registro;
+}
+
+
+int Archivoproveedores::getCantidad(){
+  int total, cantidad;
+  FILE *pFile;
+  pFile = fopen(_fileName.c_str(), "rb");
+
+  if(pFile == nullptr){
+      return 0;
+  }
+
+  fseek(pFile, 0, SEEK_END);
+  total = ftell(pFile);
+
+  fclose(pFile);
+
+  return total / sizeof(Proveedores);
+}
+
 

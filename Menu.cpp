@@ -115,6 +115,8 @@
             case 1:
                 system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
+                for (int i=0; i < ap.getCantidad() ; i++){
+                    pr.MostrarProveedores(ap.leer(i));}
                 system ("pause");
                 system ("cls");
                 break;
