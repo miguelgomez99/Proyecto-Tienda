@@ -120,9 +120,29 @@
                 system ("pause");
                 system ("cls");
                 break;
-            case 2:
+            case 2: {
                 std::cout << "Ingrese el cuit de los datos del proveedor que quiera modificar: " << std::endl;
+                int pos = pr.buscarProveedores();
+                if (pos>=0){
+                    pr.AgregarProveedores();
+
+                if (pr.modificarProveedores(pr, pos)){
+                    std::cout << "Proveedore modificado correctamente." << std::endl;
+                }
+
+                else {
+                    std::cout << "no se pudo modificar el proveedor." << std::endl;
+                }
+
+
+                }
+                else {
+                    std::cout << "Proveedor no encontrado." << std::endl;
+                }
+
                 break;
+            }
+
             case 3:
                 std::cout << "Ingrese los siguientes datos:" << std::endl;
                 pr.AgregarProveedores();
@@ -132,7 +152,9 @@
                 system ("cls");
                 break;
             default:
+                system ("cls");
                 std::cout << "Opcion invalida, por favor ingrese una opcion correcta :)." << std::endl;
+
         }
     } while(opcion!=0);
         }

@@ -10,6 +10,7 @@
     strcpy(_Contacto, "vacio 3");
     strcpy(_Cuit, "vacio 3");
     strcpy(_Producto, "vacio 3");
+    tamRegistro=sizeof (Proveedores);
     }
 
 
@@ -20,8 +21,10 @@
     char cuit[20];
     char producto[20];
 
+
         std::cout << "Ingrese el nombre del proveedor: " << std::endl;
-        std::cin >> nombre;
+        std::cin.ignore();
+        std::cin.getline(nombre, 20);
         setNombre(nombre);
 
 
@@ -39,16 +42,16 @@
 
         system("cls");
     }
-/*
+
     // GUARDADO DE DATOS
-    bool Proveedores::guardarProveedores(Proveedores proveedores){
+    void Proveedores::guardarProveedores(const Proveedores& proveedores){
           FILE *pFile;
-          pFile = fopen("Proveedores.dat", "ab");
-    if (pFile == nullptr) {
+          pFile=fopen("Proveedores.dat", "ab");
+    if (pFile==nullptr){
 
             std::cout << "Error al abrir el archivo.";
 
-            return false;}
+    }
     int escribio=fwrite(&proveedores, sizeof(Proveedores), 1, pFile);
     fclose(pFile);
 
@@ -57,8 +60,6 @@
     } else {
         std::cerr << "Error al guardar el registro." << std::endl;
     }
-
-    return escribio;
     }
 
     //LISTADO DE PROVEEDORES
@@ -72,14 +73,17 @@
 
     Proveedores proveedores;
     while(fread(&proveedores, sizeof(Proveedores), 1, pFile)==1){
-    proveedores.MostrarProveedores();
+    proveedores.MostrarProveedores(proveedores);
     }
     fclose(pFile);
     return true;
     }
 
     // BUSCAR REGISTRO
-    int Proveedores::buscarProveedores (const char* cuit){
+    int Proveedores::buscarProveedores (){
+
+        char cuit [20];
+        std::cin >> cuit;
 
         FILE *pProv;
         Proveedores proveedores;
@@ -94,7 +98,7 @@
     }
 
     while (fread(&proveedores, sizeof(Proveedores), 1, pProv)==1){
-            if (getCuit()== cuit){
+            if (strcmp(proveedores.getCuit(),cuit)==0){
                 fclose(pProv);
                 return pos;
 
@@ -102,26 +106,16 @@
             pos++;
     }
 
+    std::cout << pos;
+
     fclose (pProv);
     return -1;
 
     }
 
-    // BAJA REGISTRO
 
-    bool Proveedores::bajaRegistro (){
-    Proveedores proveedores;
-    char cuit[20];
-    std::cout << "Ingresar cuit a dar de baja";
-    std::cin >> cuit;
-    int pos=buscarProveedores(cuit);
-
-    }
-
-*/
 
     // MOSTRAR PROVEEDORES
-    /*
 void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
     std::cout << "Nombre del proveedor: " << proveedor.getNombre() << std::endl;
     std::cout << "Contacto del proveedor: " << proveedor.getContacto() << std::endl;
@@ -131,7 +125,7 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
 
     // MODIFICAR PROVEEDORES
 
-   /* bool Proveedores::modificarProveedores (const Proveedores &proveedores, int pos){
+   bool Proveedores::modificarProveedores (const Proveedores &proveedores, int pos){
 
         FILE *pModificar;
         pModificar = fopen ("Proveedores.dat", "rb+");
@@ -140,9 +134,9 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
         std::cout << "No se pudo abrir el archivo" << std::endl;
         return false;
     }
-    fseek (pModificar, pos*tamanioRegistro, 0);
+    fseek (pModificar, pos*sizeof (proveedores), 0);
 
-    bool escribio=fwrite (&proveedores, tamanioRegistro, 1, pModificar);
+    bool escribio=fwrite (&proveedores, sizeof (proveedores), 1, pModificar);
 
     fclose (pModificar);
 
@@ -150,7 +144,7 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
 
 
     }
-*/
+
 
     // SETTERS
     void Proveedores::setNombre (const char nombre[]){
@@ -171,19 +165,19 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
 
 
     // getters
-    const char* Proveedores::getNombre (){
+    const char* Proveedores::getNombre () const{
         return _Nombre;
     }
 
-    const char* Proveedores::getContacto (){
+    const char* Proveedores::getContacto () const{
         return _Contacto;
     }
 
-    const char* Proveedores::getCuit (){
+    const char* Proveedores::getCuit () const{
         return _Cuit;
     }
 
-    const char* Proveedores::getProducto (){
+    const char* Proveedores::getProducto () const{
         return _Producto;
     }
 
@@ -237,16 +231,16 @@ Proveedores Archivoproveedores::leer(int pos){
 
 
 int Archivoproveedores::getCantidad(){
-  int total, cantidad;
+  int total;
   FILE *pFile;
   pFile = fopen(_fileName.c_str(), "rb");
 
-  if(pFile == nullptr){
+  if(pFile==nullptr){
       return 0;
   }
 
-  fseek(pFile, 0, SEEK_END);
-  total = ftell(pFile);
+  fseek(pFile,0,SEEK_END);
+  total=ftell(pFile);
 
   fclose(pFile);
 
