@@ -7,7 +7,7 @@ Archivoproducto::Archivoproducto(){
   _fileName = "Producto.dat";
 }
 
-bool Archivoproducto::Guardar(const Producto &registro){
+/*bool Archivoproducto::Guardar(const Producto &registro){
   FILE *pFile;
   bool result;
 
@@ -43,6 +43,7 @@ Producto Archivoproducto::leer(int pos){
   return registro;
 }
 
+*/
 
 int Archivoproducto::getCantidad(){
   int total;
@@ -59,7 +60,10 @@ int Archivoproducto::getCantidad(){
   fclose(pFile);
 
   return total / sizeof(Producto);
+
+
 }
+/*
   bool Archivoproducto::modificarProducto (const Producto &producto, int pos){
 
         FILE *pModificar;
@@ -79,3 +83,112 @@ int Archivoproducto::getCantidad(){
 
 
     }
+
+*/
+
+
+    // GUARDADO DE PRODUCTOS
+    void Archivoproducto::guardarProducto(const Producto& producto){
+          FILE *pGuardar;
+          pGuardar=fopen(_fileName.c_str(), "ab");
+    if (pGuardar==nullptr){
+
+            std::cout << "Error al abrir el archivo.";
+
+    }
+    int escribio=fwrite(&producto, sizeof(producto), 1, pGuardar);
+    fclose(pGuardar);
+
+     if (escribio == 1) {
+        std::cout << "Registro guardado correctamente." << std::endl;
+    } else {
+        std::cerr << "Error al guardar el registro." << std::endl;
+    }
+    }
+
+    //LISTADO DE PRODUCTOS
+    bool Archivoproducto::leerProducto (){
+
+    FILE *pLeer = fopen(_fileName.c_str(), "rb");
+    if (pLeer==nullptr){
+        std::cout << "No se pudo abrir el archivo" << std::endl;
+        return false;
+    }
+
+    Producto producto;
+    while(fread(&producto, sizeof(producto), 1, pLeer)==1){
+    MostrarProducto(producto);
+    }
+    fclose(pLeer);
+    return true;
+    }
+
+    // BUSCAR PRODUCTO
+    int Archivoproducto::buscarProducto (){
+
+        int codigo;
+        std::cin >> codigo;
+
+        FILE *pBuscar;
+        Producto producto;
+
+        int pos=0;
+
+        pBuscar = fopen (_fileName.c_str(), "rb");
+
+        if (pBuscar==nullptr){
+        std::cout << "No se pudo abrir el archivo" << std::endl;
+        return -2;
+    }
+
+    while (fread(&producto, sizeof(producto), 1, pBuscar)==1){
+            if (producto.getCodigo()==codigo){
+                fclose(pBuscar);
+                return pos;
+
+            }
+            pos++;
+    }
+
+    std::cout << pos;
+
+    fclose (pBuscar);
+    return -1;
+
+    }
+
+
+
+    // MOSTRAR PRODUCTO
+void Archivoproducto::MostrarProducto(const Producto &producto) {
+    std::cout << "Nombre del producto: " << producto.getNombreProducto() <<std::endl;
+    std::cout << "Codigo del producto: " << producto.getCodigo() <<std::endl;
+    std::cout << "Categoria del producto: " << producto.getCategoria() <<std::endl;
+    std::cout << "Precio del producto: " << producto.getPrecio() <<std::endl;
+    std::cout << "Cantidad del producto: " << producto.getCantidad() <<std::endl;
+    std::cout << "Cuit de la empresa proveedora del producto: " << producto.getCuit() <<std::endl;
+
+}
+
+    // MODIFICAR PRODUCTO
+
+   bool Archivoproducto::modificarProducto (const Producto &producto, int pos){
+
+        FILE *pModificar;
+        pModificar = fopen (_fileName.c_str(), "rb+");
+
+        if (pModificar==nullptr){
+        std::cout << "No se pudo abrir el archivo" << std::endl;
+        return false;
+    }
+    fseek (pModificar, pos*sizeof (producto), 0);
+
+    bool escribio=fwrite (&producto, sizeof (producto), 1, pModificar);
+
+    fclose (pModificar);
+
+    return escribio;
+
+
+    }
+

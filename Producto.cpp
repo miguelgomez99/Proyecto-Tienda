@@ -4,25 +4,25 @@
 
 
     Producto::Producto(){
-        _nombreProducto="Vacio";
+        strcpy(_nombreProducto, "vacio");
         _Codigo=0;
-        _Categoria="vacio";
+        strcpy(_Categoria, "vacio");
         _Precio=0.0;
         _Cantidad=0;
         _Cuit=0;
     }
 
 // Setters
-    void Producto::setNombreProducto (std::string nombre){
-        _nombreProducto=nombre;
+    void Producto::setNombreProducto (const char nombre[]){
+        strcpy(_nombreProducto, nombre);
     }
 
     void Producto::setCodigo (int codigo){
         _Codigo=codigo;
     }
 
-    void Producto::setCategoria (std::string categoria){
-        _Categoria=categoria;
+    void Producto::setCategoria (const char categoria[]){
+        strcpy(_Categoria, categoria);
     }
 
     void Producto::setPrecio (float precio){
@@ -40,27 +40,27 @@
 
 
 // Getters
-    std::string Producto::getNombreProducto (){
+    const char* Producto::getNombreProducto ()const {
         return _nombreProducto;
     }
 
-    int Producto::getCodigo(){
+    int Producto::getCodigo()const {
         return _Codigo;
     }
 
-    std::string Producto::getCategoria (){
+    const char* Producto::getCategoria () const {
         return _Categoria;
     }
 
-    float Producto::getPrecio (){
+    float Producto::getPrecio ()const {
        return _Precio;
     }
 
-    int Producto::getCantidad (){
+    int Producto::getCantidad () const {
       return  _Cantidad;
     }
 
-    int Producto::getCuit (){
+    int Producto::getCuit () const {
       return  _Cuit;
     }
 
@@ -87,7 +87,8 @@
         setCodigo(Codigo);
 
         std::cout << "Ingrese categoria: " << std::endl;
-        std::cin >> Categoria;
+        std::cin.ignore();
+        std::cin>> Categoria;
         setCategoria(Categoria);
 
         std::cout << "Ingrese el precio del producto: " << std::endl;

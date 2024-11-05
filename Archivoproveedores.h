@@ -10,6 +10,8 @@ public:
   Proveedores leer(int pos);
   int getCantidad();
 
+
+
 private:
   std::string _fileName;
 };

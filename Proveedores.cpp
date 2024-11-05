@@ -6,11 +6,10 @@
 
     // constructor
     Proveedores::Proveedores(){
-    strcpy(_Nombre, "vacio 3");
-    strcpy(_Contacto, "vacio 3");
-    strcpy(_Cuit, "vacio 3");
-    strcpy(_Producto, "vacio 3");
-    tamRegistro=sizeof (Proveedores);
+    strcpy(_Nombre, "vacio");
+    strcpy(_Contacto, "vacio");
+    strcpy(_Cuit, "vacio");
+    strcpy(_Producto, "vacio");
     }
 
 
@@ -154,6 +153,7 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
     void Proveedores::setContacto (const char contacto[]){
         strcpy(_Contacto, contacto);
     }
+
 
     void Proveedores::setCuit (const char cuit[]){
         strcpy(_Cuit, cuit);

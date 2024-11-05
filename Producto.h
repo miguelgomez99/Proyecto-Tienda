@@ -4,9 +4,9 @@
 class Producto {
 
 protected:
-    std::string _nombreProducto;
+    char _nombreProducto[20];
     int _Codigo;
-    std::string _Categoria;
+    char _Categoria [20];
     float _Precio;
     int _Cantidad;
     int _Cuit;
@@ -19,11 +19,11 @@ public:
     void AgregarProducto();
 
 // Setters
-    void setNombreProducto (std::string nombre);
+    void setNombreProducto (const char nombre[]);
 
     void setCodigo(int codigo);
 
-    void setCategoria (std::string categoria);
+    void setCategoria (const char categoria[]);
 
     void setPrecio (float precio);
 
@@ -34,17 +34,17 @@ public:
 
 
 // Getters
-    std::string getNombreProducto ();
+    const char* getNombreProducto () const;
 
-    int getCodigo();
+    int getCodigo() const;
 
-    std::string getCategoria ();
+    const char* getCategoria () const;
 
-    float getPrecio ();
+    float getPrecio () const;
 
-    int getCantidad ();
+    int getCantidad () const;
 
-    int getCuit ();
+    int getCuit () const;
 
 
 };

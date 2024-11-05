@@ -74,8 +74,9 @@
         std::cout << "Seleccione una opcion: " << std::endl;
         std::cout << "-------------------------------" << std::endl;
         std::cout << "1- Ingreso de producto." << std::endl;
-        std::cout << "2- Buscar producto." << std::endl;
-        std::cout << "3- Modificar inventario." << std::endl;
+        std::cout << "2- Listado de productos." << std::endl;
+        std::cout << "3- Buscar producto." << std::endl;
+        std::cout << "4- Modificar inventario." << std::endl;
         std::cout << "0- Volver al menu principal." << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cin >> opcion;
@@ -84,14 +85,26 @@
             case 1:
                 std::cout << "Ingrese los siguientes datos del producto: " << std::endl;
                 P.AgregarProducto();
-                AP.Guardar(P);
+                AP.guardarProducto(P);
                 break;
             case 2:
-                std::cout << "Ingrese el producto a buscar:" << std::endl;
+                system ("cls");
+                std::cout << "-------Los productos cargados en el sistema son los siguientes--------" << std::endl;
+                AP.MostrarProducto(P);
+                system("pause");
+                system ("cls");
                 break;
+
             case 3:
-                std::cout << "Ingrese el ID de producto que desea modificar:" << std::endl;
+                std::cout << "Ingrese el producto a buscar:" << std::endl;
+
                 break;
+            case 4:{
+                std::cout << "Ingrese el ID de producto que desea modificar:" << std::endl;
+                int pos=AP.buscarProducto();
+                AP.modificarProducto(P,pos);
+                break;
+            }
             case 0:
                 system ("cls");
                 break;
