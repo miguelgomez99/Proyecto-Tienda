@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "Proveedores.h"
 #include "Archivoproveedores.h"
+#include "Producto.h"
 
 
     // MENU PRINCIPAL
@@ -64,6 +65,7 @@
      // SUBMENU PRODUCTOS
    void Menu::AdminProductos(){
        int opcion;
+       Producto P;
 
     do {
         std::cout << "----Administracion de Productos----" << std::endl;
@@ -79,6 +81,7 @@
         switch(opcion){
             case 1:
                 std::cout << "Ingrese los siguientes datos del producto: " << std::endl;
+                P.AgregarProducto();
                 break;
             case 2:
                 std::cout << "Ingrese el producto a buscar:" << std::endl;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Producto.h"
 
 
@@ -12,27 +13,27 @@
     }
 
 // Setters
-    void Producto::setNombreProducto const (std::string nombre){
+    void Producto::setNombreProducto (std::string nombre){
         _nombreProducto=nombre;
     }
 
-    void Producto::setCodigo const (int codigo){
+    void Producto::setCodigo (int codigo){
         _Codigo=codigo;
     }
 
-    void Producto::setCategoria const (std::string categoria){
+    void Producto::setCategoria (std::string categoria){
         _Categoria=categoria;
     }
 
-    void Producto::setPrecio const (float precio){
+    void Producto::setPrecio (float precio){
         _Precio=precio;
     }
 
-    void Producto::setCantidad const (int cantidad){
+    void Producto::setCantidad (int cantidad){
         _Cantidad=cantidad;
     }
 
-    void Producto::setCuit const (int cuit){
+    void Producto::setCuit (int cuit){
         _Cuit=cuit;
     }
 
@@ -63,3 +64,43 @@
       return  _Cuit;
     }
 
+    ///AGREGAR PRODUCTOS
+
+    void Producto::AgregarProducto(){
+
+    char nombreProducto[30];
+    int  Codigo;
+    char Categoria[3];
+    float Precio;
+    int Cantidad;
+    char Cuit[30];
+
+
+        std::cout << "Ingrese el nombre del producto: " << std::endl;
+        std::cin.ignore();
+        std::cin>> nombreProducto;
+        setNombre(nombreProducto);
+
+
+        std::cout << "Ingrese el codigo: " << std::endl;
+        std::cin >> Codigo;
+        setContacto(Codigo);
+
+        std::cout << "Ingrese categoria: " << std::endl;
+        std::cin >> Categoria;
+        setCuit(Categoria);
+
+        std::cout << "Ingrese el precio del producto: " << std::endl;
+        std::cin >> Precio;
+        setProducto(Precio);
+
+        std::cout << "Ingrese cantidad: " << std::endl;
+        std::cin >> Cantidad;
+        setProducto(Cantidad);
+
+        std::cout << "Ingrese el cuit de la empresa proveedota: " << std::endl;
+        std::cin >> Cuit;
+        setProducto(Cuit);
+
+        system("cls");
+    }

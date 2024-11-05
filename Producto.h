@@ -1,4 +1,5 @@
 #pragma once
+#include "Menu.h"
 
 class Producto {
 
@@ -15,6 +16,7 @@ public:
 // Constructor
 
     Producto();
+    void AgregarProducto();
 
 // Setters
     void setNombreProducto (std::string nombre);

@@ -49,41 +49,44 @@
 	<iostream>
 	"Archivoproveedores.h"
 
-1730580694 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\main.cpp
+1730773631 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\main.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
+	"Producto.h"
 	"Archivoproveedores.h"
 
 1730414613 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.h
 	<iostream>
 	"Menu.h"
 
-1730582628 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.h
+1730770458 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.h
 	"Menu.h"
 
 1730324870 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.cpp
 	<iostream>
 	"Producto.h"
 
-1730324870 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.h
+1730773923 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\producto.h
+	"Menu.h"
 
-1730582698 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.cpp
+1730770458 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\proveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
 	<cstring>
 	<iostream>
 	"Archivoproveedores.h"
 
-1730581591 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
+1730770405 c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\archivoproveedores.h
 	<string>
 	"Menu.h"
 
-1730582038 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
+1730773666 source:c:\users\tomyb\onedrive\documentos\github\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
 	"Archivoproveedores.h"
+	"Producto.h"
 
 1730656246 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.h
 	<string>
