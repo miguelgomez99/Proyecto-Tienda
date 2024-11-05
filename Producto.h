@@ -34,17 +34,17 @@ public:
 
 
 // Getters
-    std::string setNombreProducto ();
+    std::string getNombreProducto ();
 
-    int setCodigo();
+    int getCodigo();
 
-    std::string setCategoria ();
+    std::string getCategoria ();
 
-    float setPrecio ();
+    float getPrecio ();
 
-    int setCantidad ();
+    int getCantidad ();
 
-    int setCuit ();
+    int getCuit ();
 
 
 };

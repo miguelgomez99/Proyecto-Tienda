@@ -56,7 +56,7 @@
        return _Precio;
     }
 
-    int Producto::setCantidad (){
+    int Producto::getCantidad (){
       return  _Cantidad;
     }
 
@@ -73,34 +73,34 @@
     char Categoria[3];
     float Precio;
     int Cantidad;
-    char Cuit[30];
+    int Cuit;
 
 
         std::cout << "Ingrese el nombre del producto: " << std::endl;
         std::cin.ignore();
         std::cin>> nombreProducto;
-        setNombre(nombreProducto);
+        setNombreProducto(nombreProducto);
 
 
         std::cout << "Ingrese el codigo: " << std::endl;
         std::cin >> Codigo;
-        setContacto(Codigo);
+        setCodigo(Codigo);
 
         std::cout << "Ingrese categoria: " << std::endl;
         std::cin >> Categoria;
-        setCuit(Categoria);
+        setCategoria(Categoria);
 
         std::cout << "Ingrese el precio del producto: " << std::endl;
         std::cin >> Precio;
-        setProducto(Precio);
+        setPrecio(Precio);
 
         std::cout << "Ingrese cantidad: " << std::endl;
         std::cin >> Cantidad;
-        setProducto(Cantidad);
+        setCantidad(Cantidad);
 
         std::cout << "Ingrese el cuit de la empresa proveedota: " << std::endl;
         std::cin >> Cuit;
-        setProducto(Cuit);
+        setCuit(Cuit);
 
         system("cls");
     }
