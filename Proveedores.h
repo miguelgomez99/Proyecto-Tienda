@@ -16,21 +16,11 @@ public:
     Proveedores();
 
 
-     void AgregarProveedores();
+    void AgregarProveedores();
 
     // guardar datos
 
-    void guardarProveedores(const Proveedores& proveedores);
 
-    bool listarProveedores();
-
-    void MostrarProveedores(const Proveedores& proveedor);
-
-    int buscarProveedores ();
-
-    bool bajaRegistro ();
-
-    bool modificarProveedores (const Proveedores &proveedors, int pos);
 
     // setters
     void setNombre (const char nombre[]);

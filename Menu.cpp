@@ -180,17 +180,17 @@
                 system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
                 for (int i=0; i < ap.getCantidad() ; i++){
-                    pr.MostrarProveedores(ap.leer(i));}
+                    ap.MostrarProveedores(ap.leer(i));}
                 system ("pause");
                 system ("cls");
                 break;
             case 2: {
                 std::cout << "Ingrese el cuit de los datos del proveedor que quiera modificar: " << std::endl;
-                int pos = pr.buscarProveedores();
+                int pos = ap.buscarProveedores();
                 if (pos>=0){
                     pr.AgregarProveedores();
 
-                if (pr.modificarProveedores(pr, pos)){
+                if (ap.modificarProveedores(pr, pos)){
                     std::cout << "Proveedore modificado correctamente." << std::endl;
                 }
 

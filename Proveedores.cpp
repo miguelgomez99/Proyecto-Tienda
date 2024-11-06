@@ -56,3 +56,33 @@ const char* Proveedores::getProducto () const
     return _Producto;
 }
 
+void Proveedores::AgregarProveedores()
+{
+
+    char nombre[20];
+    char contacto[20];
+    char cuit[20];
+    char producto[20];
+
+
+    std::cout << "Ingrese el nombre del proveedor: " << std::endl;
+    std::cin.ignore();
+    std::cin.getline(nombre, 20);
+    setNombre(nombre);
+
+
+    std::cout << "Ingrese el contacto del proveedor: " << std::endl;
+    std::cin >> contacto;
+    setContacto(contacto);
+
+    std::cout << "Ingrese el cuit del proveedor: " << std::endl;
+    std::cin >> cuit;
+    setCuit(cuit);
+
+    std::cout << "Ingrese el producto del proveedor: " << std::endl;
+    std::cin >> producto;
+    setProducto(producto);
+
+    system("cls");
+}
+

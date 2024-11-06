@@ -4,7 +4,7 @@
 
 
     Producto::Producto(){
-        strcpy(_nombreProducto, "vacio");
+        strcpy(_nombreMarca, "vacio");
         _Codigo=0;
         strcpy(_Categoria, "vacio");
         _Precio=0.0;
@@ -13,8 +13,8 @@
     }
 
 // Setters
-    void Producto::setNombreProducto (const char nombre[]){
-        strcpy(_nombreProducto, nombre);
+    void Producto::setnombreMarca (const char nombre[]){
+        strcpy(_nombreMarca, nombre);
     }
 
     void Producto::setCodigo (int codigo){
@@ -40,8 +40,8 @@
 
 
 // Getters
-    const char* Producto::getNombreProducto ()const {
-        return _nombreProducto;
+    const char* Producto::getnombreMarca ()const {
+        return _nombreMarca;
     }
 
     int Producto::getCodigo()const {
@@ -68,9 +68,9 @@
 
     void Producto::AgregarProducto(){
 
-    char nombreProducto[30];
+    char nombreMarca[30];
     int  Codigo;
-    char Categoria[3];
+    int Categoria;
     float Precio;
     int Cantidad;
     int Cuit;
@@ -78,10 +78,29 @@
 
 
 
-        std::cout << "Ingrese el nombre del producto: " << std::endl;
+        std::cout << "Ingrese la categoria del producto: " << std::endl;
+        std::cin>> Categoria;
+        switch (Categoria){
+    case 1:
+            setCategoria ("Alimento");
+            break;
+    case 2:
+            setCategoria ("Juguetes");
+            break;
+    case 3:
+            setCategoria ("Accesorios");
+            break;
+
+    case 4:
+            setCategoria ("Medicamentos");
+            break;
+        }
+
+
+        std::cout << "Ingrese la marca del producto: " << std::endl;
         std::cin.ignore();
-        std::cin>> nombreProducto;
-        setNombreProducto(nombreProducto);
+        std::cin>> nombreMarca;
+        setnombreMarca(nombreMarca);
 
 
         std::cout << "Ingrese el codigo: " << std::endl;
@@ -95,11 +114,6 @@
                     std::cout << "Ingrese un numero de codigo correcto..." << std::endl;
                 }
         }
-
-        std::cout << "Ingrese categoria: " << std::endl;
-        std::cin.ignore();
-        std::cin>> Categoria;
-        setCategoria(Categoria);
 
         std::cout << "Ingrese el precio del producto: " << std::endl;
          while (validacionPrecio!=true){

@@ -169,7 +169,7 @@ int Archivoproducto::getCantidad(){
 
     // MOSTRAR PRODUCTO
 void Archivoproducto::MostrarProducto(const Producto &producto) {
-    std::cout << "Nombre del producto: " << producto.getNombreProducto() <<std::endl;
+    std::cout << "Nombre del producto: " << producto.getnombreMarca() <<std::endl;
     std::cout << "Codigo del producto: " << producto.getCodigo() <<std::endl;
     std::cout << "Categoria del producto: " << producto.getCategoria() <<std::endl;
     std::cout << "Precio del producto: " << producto.getPrecio() <<std::endl;

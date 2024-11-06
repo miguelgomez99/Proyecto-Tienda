@@ -4,7 +4,7 @@
 class Producto {
 
 protected:
-    char _nombreProducto[20];
+    char _nombreMarca[20];
     int _Codigo;
     char _Categoria [20];
     float _Precio;
@@ -19,7 +19,7 @@ public:
     void AgregarProducto();
 
 // Setters
-    void setNombreProducto (const char nombre[]);
+    void setnombreMarca (const char nombre[]);
 
     void setCodigo(int codigo);
 
@@ -34,7 +34,7 @@ public:
 
 
 // Getters
-    const char* getNombreProducto () const;
+    const char* getnombreMarca () const;
 
     int getCodigo() const;
 
