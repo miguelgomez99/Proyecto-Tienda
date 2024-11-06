@@ -189,6 +189,7 @@ void Proveedores::MostrarProveedores(const Proveedores& proveedor) {
 
 
 /// PRUEBA
+/*
 Archivoproveedores::Archivoproveedores(){
   _fileName = "Proveedores.dat";
 }
@@ -247,4 +248,4 @@ int Archivoproveedores::getCantidad(){
   return total / sizeof(Proveedores);
 }
 
-
+*/
