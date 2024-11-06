@@ -13,7 +13,7 @@ public:
   */
 
   void guardarProducto(const Producto& producto);
-  bool leerProducto ();
+  Producto leer(int pos);
   int buscarProducto ();
   void MostrarProducto(const Producto& producto);
   bool modificarProducto (const Producto &producto, int pos);

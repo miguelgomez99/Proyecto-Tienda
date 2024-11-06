@@ -45,24 +45,7 @@ Producto Archivoproducto::leer(int pos){
 
 */
 
-int Archivoproducto::getCantidad(){
-  int total;
-  FILE *pFile;
-  pFile = fopen(_fileName.c_str(), "rb");
 
-  if(pFile==nullptr){
-      return 0;
-  }
-
-  fseek(pFile,0,SEEK_END);
-  total=ftell(pFile);
-
-  fclose(pFile);
-
-  return total / sizeof(Producto);
-
-
-}
 /*
   bool Archivoproducto::modificarProducto (const Producto &producto, int pos){
 
@@ -86,6 +69,25 @@ int Archivoproducto::getCantidad(){
 
 */
 
+int Archivoproducto::getCantidad(){
+  int total;
+  FILE *pFile;
+  pFile = fopen(_fileName.c_str(), "rb");
+
+  if(pFile==nullptr){
+      return 0;
+  }
+
+  fseek(pFile,0,SEEK_END);
+  total=ftell(pFile);
+
+  fclose(pFile);
+
+  return total / sizeof(Producto);
+
+
+}
+
 
     // GUARDADO DE PRODUCTOS
     void Archivoproducto::guardarProducto(const Producto& producto){
@@ -96,7 +98,7 @@ int Archivoproducto::getCantidad(){
             std::cout << "Error al abrir el archivo.";
 
     }
-    int escribio=fwrite(&producto, sizeof(producto), 1, pGuardar);
+    int escribio=fwrite(&producto, sizeof(Producto), 1, pGuardar);
     fclose(pGuardar);
 
      if (escribio == 1) {
@@ -107,21 +109,26 @@ int Archivoproducto::getCantidad(){
     }
 
     //LISTADO DE PRODUCTOS
-    bool Archivoproducto::leerProducto (){
+    Producto Archivoproducto::leer(int pos){
+  FILE *pLeer;
+  Producto producto;
 
-    FILE *pLeer = fopen(_fileName.c_str(), "rb");
-    if (pLeer==nullptr){
-        std::cout << "No se pudo abrir el archivo" << std::endl;
-        return false;
-    }
+   pLeer=fopen(_fileName.c_str(), "rb");
 
-    Producto producto;
-    while(fread(&producto, sizeof(producto), 1, pLeer)==1){
-    MostrarProducto(producto);
-    }
-    fclose(pLeer);
-    return true;
-    }
+   if(pLeer == nullptr){
+      return producto;
+  }
+
+  fseek(pLeer, sizeof(Producto) * pos, SEEK_SET);
+
+  fread(&producto, sizeof(Producto), 1, pLeer);
+
+  fclose(pLeer);
+
+  return producto;
+}
+
+
 
     // BUSCAR PRODUCTO
     int Archivoproducto::buscarProducto (){
@@ -137,11 +144,11 @@ int Archivoproducto::getCantidad(){
         pBuscar = fopen (_fileName.c_str(), "rb");
 
         if (pBuscar==nullptr){
-        std::cout << "No se pudo abrir el archivo" << std::endl;
+
         return -2;
     }
 
-    while (fread(&producto, sizeof(producto), 1, pBuscar)==1){
+    while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
             if (producto.getCodigo()==codigo){
                 fclose(pBuscar);
                 return pos;
@@ -156,6 +163,7 @@ int Archivoproducto::getCantidad(){
     return -1;
 
     }
+
 
 
 
@@ -183,7 +191,7 @@ void Archivoproducto::MostrarProducto(const Producto &producto) {
     }
     fseek (pModificar, pos*sizeof (producto), 0);
 
-    bool escribio=fwrite (&producto, sizeof (producto), 1, pModificar);
+    bool escribio=fwrite (&producto, sizeof (Producto), 1, pModificar);
 
     fclose (pModificar);
 

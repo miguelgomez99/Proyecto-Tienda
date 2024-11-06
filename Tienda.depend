@@ -17,7 +17,7 @@
 	<iostream>
 	"Menu.h"
 
-1730837790 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
+1730860297 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
@@ -25,7 +25,7 @@
 1730837784 c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.h
 	"Menu.h"
 
-1730830700 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\main.cpp
+1730860539 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\main.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -36,7 +36,7 @@
 	<iostream>
 	"Menu.h"
 
-1730839501 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
+1730861367 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -44,10 +44,10 @@
 	"Archivoproducto.h"
 	"Producto.h"
 
-1730668259 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
+1730858784 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
 	"Menu.h"
 
-1730837966 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
+1730858785 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
 	<cstring>
@@ -109,13 +109,20 @@
 	"Menu.h"
 	"Producto.h"
 
-1730839496 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
+1730860461 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
 	"Menu.h"
 	"archivoproducto.h"
 	<cstring>
 	<iostream>
 
-1730839476 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.h
+1730860297 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.h
 	"Menu.h"
 	"Producto.h"
+
+1730858785 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.cpp
+	"Menu.h"
+	"Proveedores.h"
+	"Archivoproveedores.h"
+	<cstring>
+	<iostream>
 

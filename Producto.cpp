@@ -74,6 +74,8 @@
     float Precio;
     int Cantidad;
     int Cuit;
+     bool validacionCodigo=false, validacionPrecio=false, validacionCantidad=false;
+
 
 
         std::cout << "Ingrese el nombre del producto: " << std::endl;
@@ -83,8 +85,16 @@
 
 
         std::cout << "Ingrese el codigo: " << std::endl;
-        std::cin >> Codigo;
-        setCodigo(Codigo);
+        while (validacionCodigo!=true){
+                std::cin >> Codigo;
+                if (Codigo>0){
+                    setCodigo(Codigo);
+                    validacionCodigo=true;
+                }
+                else {
+                    std::cout << "Ingrese un numero de codigo correcto..." << std::endl;
+                }
+        }
 
         std::cout << "Ingrese categoria: " << std::endl;
         std::cin.ignore();
@@ -92,12 +102,29 @@
         setCategoria(Categoria);
 
         std::cout << "Ingrese el precio del producto: " << std::endl;
-        std::cin >> Precio;
-        setPrecio(Precio);
+         while (validacionPrecio!=true){
+                std::cin >> Precio;
+                if (Precio>0){
+                    setPrecio(Precio);
+                    validacionPrecio=true;
+                }
+                else {
+                    std::cout << "Ingrese un precio real..." << std::endl;
+                }
+                }
 
         std::cout << "Ingrese cantidad: " << std::endl;
-        std::cin >> Cantidad;
-        setCantidad(Cantidad);
+        while (validacionCantidad!=true){
+                std::cin >> Cantidad;
+                if (Cantidad>0){
+                    setCantidad(Cantidad);
+                    validacionCantidad=true;
+                }
+                else {
+                    std::cout << "Ingrese una cantidad real..." << std::endl;
+                }
+                }
+
 
         std::cout << "Ingrese el cuit de la empresa proveedota: " << std::endl;
         std::cin >> Cuit;

@@ -83,6 +83,7 @@
 
         switch(opcion){
             case 1:
+                system ("cls");
                 std::cout << "Ingrese los siguientes datos del producto: " << std::endl;
                 P.AgregarProducto();
                 AP.guardarProducto(P);
@@ -90,19 +91,63 @@
             case 2:
                 system ("cls");
                 std::cout << "-------Los productos cargados en el sistema son los siguientes--------" << std::endl;
-                AP.MostrarProducto(P);
-                system("pause");
+                 for (int i=0; i < AP.getCantidad() ; i++){
+                AP.MostrarProducto(AP.leer(i));}
+                system ("pause");
                 system ("cls");
                 break;
 
-            case 3:
+            case 3:{
+                system ("cls");
                 std::cout << "Ingrese el producto a buscar:" << std::endl;
+                int pos=AP.buscarProducto();
+                if (pos>=0){
+                AP.MostrarProducto(AP.leer(pos));
+                }
+                else {
+                    if (pos==-2){
+
+                        std::cout<< "No se pudo abir el archivo." << std::endl;
+                        system ("pause");
+                    }
+                    else {
+                          system ("cls");
+                        std::cout<< "No se pudo encontrar el ID del producto." << std::endl;
+                        system ("pause");
+                        system ("cls");
+                    }
+                }
+                system ("pause");
+                system ("cls");
 
                 break;
+        }
             case 4:{
+                system ("cls");
                 std::cout << "Ingrese el ID de producto que desea modificar:" << std::endl;
                 int pos=AP.buscarProducto();
-                AP.modificarProducto(P,pos);
+                 if (pos>=0){
+                    P.AgregarProducto();
+                if (AP.modificarProducto(P,pos)){
+                    std::cout << "Producto modificado correctamente." << std::endl;
+                }
+
+                else {
+                    system ("cls");
+                    std::cout << "No se pudo modificar el producto." << std::endl;
+                    system ("pause");
+                    system ("cls");
+                }
+
+
+                }
+                else {
+                        system ("cls");
+                    std::cout << "ID de producto no encontrado." << std::endl;
+                system ("pause");
+                system ("cls");
+                }
+
                 break;
             }
             case 0:

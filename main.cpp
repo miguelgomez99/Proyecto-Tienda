@@ -12,7 +12,6 @@ int main()
 {
     Menu menu;
     Proveedores pr;
-    Archivoproveedores ap;
     Producto P;
     menu.mostrarMenu();
     return 0;
