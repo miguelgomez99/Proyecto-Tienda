@@ -233,8 +233,9 @@
         std::cout << "Seleccione una opcion: " << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cout << "1- Registro de ventas." << std::endl;
-        std::cout << "2- Listado de venta." << std::endl;
-        std::cout << "3- Modificacion de venta." << std::endl;
+        std::cout << "2- Registro de Detalle de venta." << std::endl;
+        std::cout << "3- Listado de venta." << std::endl;
+        std::cout << "4- Modificacion de venta." << std::endl;
         std::cout << "0- Volver al menu principal." << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cin >> opcion;
@@ -244,9 +245,12 @@
                 std::cout << "Ingrese los siguientes datos de la venta: " << std::endl;
                 break;
             case 2:
-                std::cout << "Listado de ventas: " << std::endl;
+                std::cout << "Ingrese los siguientes datos del detalle de venta: " << std::endl;
                 break;
             case 3:
+                std::cout << "Listado de ventas: " << std::endl;
+                break;
+            case 4:
                 std::cout << "Ingrese que venta desea modificar: " << std::endl;
                 break;
             case 0:
