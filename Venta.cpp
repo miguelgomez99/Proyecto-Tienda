@@ -12,46 +12,46 @@ Venta::Venta()
 
 // Setters
 
-void Detalledeventa::setID (int ID)
+void Venta::setID (int ID)
 {
     _ID=ID;
 }
 
-void Detalledeventa::setNombreProducto (const char nombre[])
+void Venta::setEmail(const char email[])
 {
-    strcpy(_nombreProducto, nombre);
+    strcpy(_Email, email);
 }
 
-void Detalledeventa::setStock (int STOCK)
+void Venta::setFormadepago (const char pago[])
 {
-    _Stock=STOCK;
+    strcpy(_Formadepago, pago);
 }
 
-void Detalledeventa::setPrecio (float precio)
+void Venta::setPrecio (float precio)
 {
     _Precio=precio;
 }
 
 // Getters
 
-int Detalledeventa::getID()const
+int Venta::getID()const
 {
     return _ID;
 }
 
 
-const char* Detalledeventa::getNombreProducto ()const
+const char* Venta::getEmail ()const
 {
-    return _nombreProducto;
+    return _Email;
 }
 
-int Detalledeventa::getStock () const
+const char* Venta::getFormadepago ()const
 {
-    return  _Stock;
+    return _Formadepago;
 }
 
 
-float Detalledeventa::getPrecio ()const
+float Venta::getPrecio ()const
 {
     return _Precio;
 }
