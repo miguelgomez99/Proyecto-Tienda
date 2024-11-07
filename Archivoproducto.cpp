@@ -133,11 +133,12 @@ int Archivoproducto::getCantidad(){
     // BUSCAR PRODUCTO
     int Archivoproducto::buscarProducto (){
 
-        int codigo;
-        std::cin >> codigo;
+        int cuit;
+        std::cin >> cuit;
 
         FILE *pBuscar;
         Producto producto;
+
 
         int pos=0;
 
@@ -149,7 +150,7 @@ int Archivoproducto::getCantidad(){
     }
 
     while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
-            if (producto.getCodigo()==codigo){
+            if (producto.getCuit()==cuit){
                 fclose(pBuscar);
                 return pos;
 
@@ -169,12 +170,15 @@ int Archivoproducto::getCantidad(){
 
     // MOSTRAR PRODUCTO
 void Archivoproducto::MostrarProducto(const Producto &producto) {
-    std::cout << "Nombre del producto: " << producto.getnombreMarca() <<std::endl;
-    std::cout << "Codigo del producto: " << producto.getCodigo() <<std::endl;
+    std::cout << "-----------------------------------------------" <<std::endl;
     std::cout << "Categoria del producto: " << producto.getCategoria() <<std::endl;
+    std::cout << "Nombre del producto: " << producto.getnombreMarca() <<std::endl;
+    /*std::cout << "Fecha de ingreso: " << producto.Mostrar() <<std::endl;*/
+    std::cout << "Codigo del producto: " << producto.getCodigo() <<std::endl;
     std::cout << "Precio del producto: " << producto.getPrecio() <<std::endl;
     std::cout << "Cantidad del producto: " << producto.getCantidad() <<std::endl;
     std::cout << "Cuit de la empresa proveedora del producto: " << producto.getCuit() <<std::endl;
+
 
 }
 

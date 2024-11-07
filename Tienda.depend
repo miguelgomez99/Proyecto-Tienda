@@ -17,12 +17,12 @@
 	<iostream>
 	"Menu.h"
 
-1730931156 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
+1730938533 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
 
-1730931049 c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.h
+1730938481 c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.h
 	"Menu.h"
 
 1730860539 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\main.cpp
@@ -36,7 +36,7 @@
 	<iostream>
 	"Menu.h"
 
-1730932276 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
+1730934830 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -109,7 +109,7 @@
 	"Menu.h"
 	"Producto.h"
 
-1730931079 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
+1730938410 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
 	"Menu.h"
 	"archivoproducto.h"
 	<cstring>

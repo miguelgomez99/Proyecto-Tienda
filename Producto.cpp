@@ -10,6 +10,7 @@
         _Precio=0.0;
         _Cantidad=0;
         _Cuit=0;
+       /* _dia = 1; _mes = 1; _anio = 2029;*/
     }
 
 // Setters
@@ -37,6 +38,19 @@
         _Cuit=cuit;
     }
 
+    /*
+    ///Seters fecha
+    void Producto::setDia(int dia){
+        if(dia>0 && dia<32) _dia = dia;
+        }
+    void Producto::setMes(int mes){
+        if(mes>0 && mes<13) _mes=mes;
+        }
+    void Producto::setAnio(int anio){
+        if(anio>0) _anio=anio;
+        }
+        */
+
 
 
 // Getters
@@ -63,6 +77,19 @@
     int Producto::getCuit () const {
       return  _Cuit;
     }
+/*
+     ///Getters fecha
+    int Producto::getDia(){
+        return _dia;
+        }
+    int Producto::getMes(){
+        return _mes;
+        }
+    int Producto::getAnio(){
+        return _anio;
+        }
+*/
+
 
     ///AGREGAR PRODUCTOS
 
@@ -74,11 +101,16 @@
     float Precio;
     int Cantidad;
     int Cuit;
-     bool validacionCodigo=false, validacionPrecio=false, validacionCantidad=false;
-
-
+   bool validacionCodigo=false, validacionPrecio=false, validacionCantidad=false;
+/*
+        std::cout << "Ingrese la fecha de ingreso del producto: " << std::endl;
+        Cargar();*/
 
         std::cout << "Ingrese la categoria del producto: " << std::endl;
+        std::cout << "1- Ingreso de alimento " << std::endl;
+        std::cout << "2- Ingreso de juguetes " << std::endl;
+        std::cout << "3- Ingreso de accesorios " << std::endl;
+        std::cout << "4- Ingreso de medicamentos " << std::endl;
         std::cin>> Categoria;
         switch (Categoria){
     case 1:
@@ -94,6 +126,10 @@
     case 4:
             setCategoria ("Medicamentos");
             break;
+    default:
+
+        std::cout << "Ingrese una opcion valida... " << std::endl;
+
         }
 
 
@@ -146,3 +182,37 @@
 
         system("cls");
     }
+
+/*
+    // FECHA
+
+
+void Producto::Cargar(){
+    int dia, mes, anio;
+    bool correcto = false;
+    do{
+    std::cout << "Ingrese el dia: ";
+    std::cin >> dia;
+    std::cout << "Ingrese el mes: ";
+    std::cin >> mes;
+    std::cout << "Ingrese el año: ";
+    std::cin >> anio;
+
+    if (dia>0 && dia<32 && mes>0 && mes<13 && anio>0){
+        _dia=dia;
+        _mes=mes;
+        _anio=anio;
+        correcto=true;
+    }
+    else{
+        std::cout << "Fecha no valida" << std::endl;
+    }
+
+    } while (!correcto);
+}
+
+void Producto::Mostrar(){
+    std::cout << "La fecha es: " <<_dia << "/" <<_mes << "/" <<_anio << std::endl;
+}
+
+*/

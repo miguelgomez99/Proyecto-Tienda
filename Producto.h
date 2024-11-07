@@ -10,6 +10,10 @@ protected:
     float _Precio;
     int _Cantidad;
     int _Cuit;
+    /*int _dia;
+    int _mes;
+    int _anio;
+    */
 
 public:
 
@@ -17,6 +21,12 @@ public:
 
     Producto();
     void AgregarProducto();
+
+  /*  // Metodos de fecha
+
+    void Cargar();
+    void Mostrar();
+    */
 
 // Setters
     void setnombreMarca (const char nombre[]);
@@ -30,6 +40,14 @@ public:
     void setCantidad (int cantidad);
 
     void setCuit (int cuit);
+/*
+    ///Seters fecha
+    void setDia(int dia);
+    void setMes(int mes);
+    void setAnio(int anio);
+    */
+
+
 
 
 
@@ -46,5 +64,22 @@ public:
 
     int getCuit () const;
 
+    /*
+    ///Getters fecha
+    int getDia();
+    int getMes();
+    int getAnio();
+    */
+
+
+
+
+
+
+
+
+
 
 };
+
+
