@@ -4,6 +4,8 @@
 #include "Archivoproveedores.h"
 #include "Archivoproducto.h"
 #include "Producto.h"
+#include "Venta.h"
+#include "ArchivoVenta.h"
 
 
     // MENU PRINCIPAL
@@ -228,6 +230,8 @@
     // SUBMENU VENTAS
         void Menu::AdminVentas(){
             int opcion;
+            Venta vn;
+            ArchivoVenta Av;
     do {
         std::cout << "----Administracion de Ventas----" << std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -242,13 +246,69 @@
         switch(opcion){
             case 1:
                 std::cout << "Ingrese los siguientes datos de la venta: " << std::endl;
+                vn.CargarVenta();
+                Av.guardarVenta(vn);
                 break;
             case 2:
+                system ("cls");
                 std::cout << "Listado de ventas: " << std::endl;
+                for (int i=0; i < Av.getCantidad() ; i++){
+                Av.MostrarVenta(Av.leer(i));}
+                system ("pause");
                 break;
-            case 3:
+            case 3:{
                 std::cout << "Ingrese que venta desea modificar: " << std::endl;
+                int pos=Av.buscarVenta();
+                 if (pos>=0){
+                    vn.CargarVenta();
+                if (Av.modificarVenta(vn,pos)){
+                    std::cout << "Producto modificado correctamente." << std::endl;
+                }
+
+                else {
+                    system ("cls");
+                    std::cout << "No se pudo modificar el producto." << std::endl;
+                    system ("pause");
+                    system ("cls");
+                }
+
+
+                }
+                else {
+                        system ("cls");
+                    std::cout << "ID de producto no encontrado." << std::endl;
+                system ("pause");
+                system ("cls");
+                }
+
+
                 break;
+            }
+            case 4:{
+                system ("cls");
+                std::cout << "Ingrese la venta que desea consultar: " << std::endl;
+                int pos=Av.buscarVenta();
+                if (pos>=0){
+                Av.MostrarVenta(Av.leer(pos));
+                }
+                else {
+                    if (pos==-2){
+
+                        std::cout<< "No se pudo abir el archivo." << std::endl;
+                        system ("pause");
+                    }
+                    else {
+                          system ("cls");
+                        std::cout<< "No se pudo encontrar el ID del producto." << std::endl;
+                        system ("pause");
+                        system ("cls");
+                    }
+                }
+                system ("pause");
+                system ("cls");
+
+                break;
+            }
             case 0:
                 system ("cls");
                 break;

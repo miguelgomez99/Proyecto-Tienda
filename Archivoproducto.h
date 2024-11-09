@@ -1,3 +1,4 @@
+#pragma once
 #include "Menu.h"
 #include "Producto.h"
 
@@ -12,10 +13,10 @@ public:
   bool modificarProducto (const Producto &producto, int pos);
   */
 
-  void guardarProducto(const Producto& producto);
+  void guardarProducto(const Producto &producto);
   Producto leer(int pos);
   int buscarProducto ();
-  void MostrarProducto(const Producto& producto);
+  void MostrarProducto(const Producto &producto);
   bool modificarProducto (const Producto &producto, int pos);
   int getCantidad ();
 
