@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include "Venta.h"
+#include "ArchivoDetalledeVenta.h"
+#include "Detalledeventa.h"
 
 Venta::Venta()
 {
@@ -68,7 +70,7 @@ Venta::Venta()
 
     // Metodos
 
-    void Venta::CargarVenta(){
+    void Venta::CargarVenta( Detalledeventa &detalledeventa){
 
     int IdVenta;
     char Email[100];
@@ -77,6 +79,8 @@ Venta::Venta()
     bool Estado;
     char NombreCLiente[20];
     bool validacionIdVenta=false;
+
+
 
     std::cout << "--------------------------------------------------------- " << std::endl;
     std::cout << "Ingrese el nombre del cliente: " << std::endl;
@@ -109,7 +113,8 @@ Venta::Venta()
         while (validacionIdVenta!=true){
                 std::cin >> IdVenta;
                 if (IdVenta>0){
-                    setIdVenta(IdVenta);
+                detalledeventa.setIdVentaDetalle(IdVenta);
+                   setIdVenta(IdVenta);
                     validacionIdVenta=true;
                 }
                 else {

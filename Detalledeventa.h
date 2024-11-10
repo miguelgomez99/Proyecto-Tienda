@@ -6,11 +6,11 @@ class Detalledeventa
 {
 
 protected:
-    int _IdVenta=0;
+    int _IdVentaDetalle;
     char _nombreProducto[20];
-    int _cantidadVenta=0;
-    float _precioUnitario=0.0;
-    float _subtotal=0.0;
+    int _cantidadVenta;
+    float _precioUnitario;
+    float _subtotal;
 
 public:
 
@@ -20,7 +20,7 @@ public:
 
 // Setters
 
-    void setIdVenta(int ID);
+    void setIdVentaDetalle(int ID);
 
     void setNombreProducto (const char nombre[]);
 
@@ -34,7 +34,7 @@ public:
 
     int getIdDetalle() const;
 
-    int getIdVenta() const;
+    int getIdVentaDetalle() const;
 
     const char* getNombreProducto () const;
 
@@ -43,6 +43,18 @@ public:
     float getPrecioUnitario() const;
 
     float getSubtotal () const;
+
+    // metodo
+
+    void cargarDetalledeVenta ();
+
+
+
+
+
+
+
+
 
 
 };

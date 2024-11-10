@@ -6,7 +6,7 @@
 
     Detalledeventa::Detalledeventa(){
 
-    _IdVenta=0;
+    _IdVentaDetalle=0;
     strcpy(_nombreProducto, "No elegido");
     _cantidadVenta=0;
     _precioUnitario=0.0;
@@ -16,8 +16,8 @@
 
 // Setters
 
-    void Detalledeventa::setIdVenta(int IdVenta){
-        _IdVenta=IdVenta;
+    void Detalledeventa::setIdVentaDetalle(int IdVenta){
+        _IdVentaDetalle=IdVenta;
     }
 
     void Detalledeventa::setNombreProducto (const char nombre[]){
@@ -43,8 +43,8 @@
 // Getters
 
 
-    int Detalledeventa::getIdVenta() const{
-        return _IdVenta;
+    int Detalledeventa::getIdVentaDetalle() const{
+        return _IdVentaDetalle;
     }
 
 
@@ -65,4 +65,47 @@
 
     float Detalledeventa::getSubtotal () const{
         return _subtotal;
+    }
+
+    void Detalledeventa::cargarDetalledeVenta (){
+
+    char nombreProducto[20];
+    int cantidadVenta;
+    float precioUnitario;
+    float subtotal;
+    bool validacion=false, validacionPrecio=false;
+
+    std::cout << "Ingrese el nombre xd del producto: " << std::endl;
+    std::cin.ignore();
+    std::cin>> nombreProducto;
+    setNombreProducto(nombreProducto);
+
+
+
+        std::cout << "Ingrese la cantidad de articulos a vender: " << std::endl;
+        while (validacion!=true){
+                std::cin >> cantidadVenta;
+                if (cantidadVenta>0){
+                    setCantidad(cantidadVenta);
+                    validacion=true;
+                }
+                else {
+                    std::cout << "Ingrese una cantidad de articulos correcta..." << std::endl;
+                }
+        }
+
+    std::cout << "Ingrese el precio unitario del producto: " << std::endl;
+        while (validacionPrecio!=true){
+                std::cin >> precioUnitario;
+                if (precioUnitario>0){
+                    setPrecioUnitario(precioUnitario);
+                    validacionPrecio=true;
+                }
+                else {
+                    std::cout << "Ingrese una cantidad de articulos correcta..." << std::endl;
+                }
+        }
+
+
+        system("cls");
     }

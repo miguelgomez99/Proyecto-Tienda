@@ -32,16 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoDetalledeVenta.cpp" />
+		<Unit filename="ArchivoDetalledeVenta.h" />
+		<Unit filename="ArchivoVenta.cpp" />
+		<Unit filename="ArchivoVenta.h" />
 		<Unit filename="Archivoproducto.cpp" />
 		<Unit filename="Archivoproducto.h" />
 		<Unit filename="Archivoproveedores.cpp" />
 		<Unit filename="Archivoproveedores.h" />
+		<Unit filename="Detalledeventa.cpp" />
+		<Unit filename="Detalledeventa.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
 		<Unit filename="Producto.cpp" />
 		<Unit filename="Producto.h" />
 		<Unit filename="Proveedores.cpp" />
 		<Unit filename="Proveedores.h" />
+		<Unit filename="Venta.cpp" />
+		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

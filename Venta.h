@@ -1,5 +1,6 @@
 #pragma once
 #include "Menu.h"
+#include "Detalledeventa.h"
 
 class Venta
 {
@@ -48,6 +49,6 @@ public:
 
     // metodos
 
-    void CargarVenta();
+    void CargarVenta( Detalledeventa &detalledeventa);
 
 };

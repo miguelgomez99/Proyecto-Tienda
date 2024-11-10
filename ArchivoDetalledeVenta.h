@@ -8,11 +8,12 @@ public:
 
     ArchivoDetalledeVenta();
 
+    void CargarDetalledeventa ();
     void MostrarDetalledeVenta(const Detalledeventa &detalledeventa);
     int getCantidadDetalle();
     void guardarDetalledeVenta(const Detalledeventa &detalledeventa);
     Detalledeventa leerDetalle(int pos);
-    int buscarDetalledeVenta ();
+    int buscarDetallesPorVenta();
     bool modificarDetalledeVenta (const Detalledeventa &detalledeventa, int pos);
 
 private:

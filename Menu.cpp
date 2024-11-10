@@ -6,6 +6,7 @@
 #include "Producto.h"
 #include "Venta.h"
 #include "ArchivoVenta.h"
+#include "ArchivoDetalledeVenta.h"
 
 
     // MENU PRINCIPAL
@@ -231,7 +232,9 @@
         void Menu::AdminVentas(){
             int opcion;
             Venta vn;
+            Detalledeventa Dv;
             ArchivoVenta Av;
+            ArchivoDetalledeVenta Ad;
     do {
         std::cout << "----Administracion de Ventas----" << std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
@@ -239,28 +242,40 @@
         std::cout << "1- Registro de ventas." << std::endl;
         std::cout << "2- Listado de venta." << std::endl;
         std::cout << "3- Modificacion de venta." << std::endl;
+        std::cout << "4- Consulta de venta." << std::endl;
+        std::cout << "5- Modificacion de precio de producto." << std::endl;
         std::cout << "0- Volver al menu principal." << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cin >> opcion;
 
         switch(opcion){
-            case 1:
+            case 1:{
                 std::cout << "Ingrese los siguientes datos de la venta: " << std::endl;
-                vn.CargarVenta();
+                int opcionCarga=0;
+                vn.CargarVenta(Dv);
                 Av.guardarVenta(vn);
+                do {
+                Dv.cargarDetalledeVenta();
+                Ad.guardarDetalledeVenta(Dv);
+                std::cout << "Desea agregar mas detalles de la venta? (1: Si, 0: No) " << std::endl;
+                std::cin>> opcion;
+                } while (opcion==1);
                 break;
+            }
             case 2:
                 system ("cls");
                 std::cout << "Listado de ventas: " << std::endl;
                 for (int i=0; i < Av.getCantidad() ; i++){
-                Av.MostrarVenta(Av.leer(i));}
+                Av.MostrarVenta(Av.leer(i));
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(i+2));
+                }
                 system ("pause");
                 break;
             case 3:{
                 std::cout << "Ingrese que venta desea modificar: " << std::endl;
                 int pos=Av.buscarVenta();
                  if (pos>=0){
-                    vn.CargarVenta();
+                    vn.CargarVenta(Dv);
                 if (Av.modificarVenta(vn,pos)){
                     std::cout << "Producto modificado correctamente." << std::endl;
                 }
@@ -290,6 +305,7 @@
                 int pos=Av.buscarVenta();
                 if (pos>=0){
                 Av.MostrarVenta(Av.leer(pos));
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(pos));
                 }
                 else {
                     if (pos==-2){
@@ -299,6 +315,8 @@
                     }
                     else {
                           system ("cls");
+
+
                         std::cout<< "No se pudo encontrar el ID del producto." << std::endl;
                         system ("pause");
                         system ("cls");
@@ -309,6 +327,7 @@
 
                 break;
             }
+
             case 0:
                 system ("cls");
                 break;

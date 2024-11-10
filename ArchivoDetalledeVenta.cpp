@@ -1,16 +1,19 @@
 #include "ArchivoDetalledeVenta.h"
 
     ArchivoDetalledeVenta::ArchivoDetalledeVenta(){
-    _fileName = "DetalledeDetalledeVenta.dat";
+    _fileName = "DetalledeVenta.dat";
 }
 
+
 void ArchivoDetalledeVenta::MostrarDetalledeVenta(const Detalledeventa& detalledeventa) {
-    std::cout << "-----------------------------------------------" <<std::endl;
-    std::cout << "Id de la venta: " << detalledeventa.getIdVenta() <<std::endl;
-    std::cout << "Nombre del producto: " << detalledeventa.getNombreProducto() <<std::endl;
-    std::cout << "Cantidad: " << detalledeventa.getCantidad() <<std::endl;
-    std::cout << "Precio unitario: " << detalledeventa.getPrecioUnitario() <<std::endl;
-    std::cout << "Precio unitario: " << detalledeventa.getSubtotal() <<std::endl;
+    std::cout << "---------------------------------------------------------" <<std::endl;
+    std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
+    std::cout << "--------------------------------------------------------" <<std::endl;
+    std::cout << detalledeventa.getIdVentaDetalle() << "            ";
+    std::cout << detalledeventa.getNombreProducto() << "               ";
+    std::cout << detalledeventa.getCantidad() << "        ";
+    std::cout << detalledeventa.getPrecioUnitario() << "       ";
+    std::cout << detalledeventa.getSubtotal() <<std::endl;
 }
 
 int ArchivoDetalledeVenta::getCantidadDetalle(){
@@ -74,7 +77,7 @@ int ArchivoDetalledeVenta::getCantidadDetalle(){
 
 
     // BUSCAR DetalledeVenta
-    int ArchivoDetalledeVenta::buscarDetalledeVenta (){
+    int ArchivoDetalledeVenta::buscarDetallesPorVenta (){
 
         int id;
         std::cin >> id;
@@ -93,7 +96,7 @@ int ArchivoDetalledeVenta::getCantidadDetalle(){
     }
 
     while (fread(&Detalledeventa, sizeof(Detalledeventa), 1, pBuscar)==1){
-            if (Detalledeventa.getIdVenta()==id){
+            if (Detalledeventa.getIdVentaDetalle()==id){
                 fclose(pBuscar);
                 return pos;
 
@@ -108,6 +111,30 @@ int ArchivoDetalledeVenta::getCantidadDetalle(){
 
     }
 
+/*
+    int ArchivoDetalledeVenta::buscarDetallesPorVenta(int idVenta, Detalledeventa detalles[], int maxDetalles) {
+    FILE *pBuscar = fopen(_fileName.c_str(), "rb");
+    if (pBuscar == nullptr) {
+        return 0;
+    }
+
+    Detalledeventa detalle;
+    int count = 0;
+    while (fread(&detalle, sizeof(Detalledeventa), 1, pBuscar) == 1) {
+        if (detalle.getIdVentaDetalle() == idVenta) {
+            if (count < maxDetalles) {
+                detalles[count++] = detalle;
+            } else {
+                std::cout << "Se alcanzó el límite de detalles por venta." << std::endl;
+                break;
+            }
+        }
+    }
+
+    fclose(pBuscar);
+    return count;
+}
+*/
         // MODIFICAR DetalledeVenta
 
    bool ArchivoDetalledeVenta::modificarDetalledeVenta (const Detalledeventa &detalledeventa, int pos){
