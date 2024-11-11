@@ -4,6 +4,9 @@
 #include "Archivoproveedores.h"
 #include "Archivoproducto.h"
 #include "Producto.h"
+#include "Venta.h"
+#include "ArchivoVenta.h"
+#include "ArchivoDetalledeVenta.h"
 
 
     // MENU PRINCIPAL
@@ -180,17 +183,17 @@
                 system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
                 for (int i=0; i < ap.getCantidad() ; i++){
-                    ap.MostrarProveedores(ap.leer(i));}
+                    pr.MostrarProveedores(ap.leer(i));}
                 system ("pause");
                 system ("cls");
                 break;
             case 2: {
                 std::cout << "Ingrese el cuit de los datos del proveedor que quiera modificar: " << std::endl;
-                int pos = ap.buscarProveedores();
+                int pos = pr.buscarProveedores();
                 if (pos>=0){
                     pr.AgregarProveedores();
 
-                if (ap.modificarProveedores(pr, pos)){
+                if (pr.modificarProveedores(pr, pos)){
                     std::cout << "Proveedore modificado correctamente." << std::endl;
                 }
 
@@ -228,31 +231,135 @@
     // SUBMENU VENTAS
         void Menu::AdminVentas(){
             int opcion;
+            Venta vn;
+            Detalledeventa Dv;
+            ArchivoVenta Av;
+            ArchivoDetalledeVenta Ad;
     do {
         std::cout << "----Administracion de Ventas----" << std::endl;
         std::cout << "Seleccione una opcion: " << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cout << "1- Registro de ventas." << std::endl;
-        std::cout << "2- Registro de Detalle de venta." << std::endl;
-        std::cout << "3- Listado de venta." << std::endl;
-        std::cout << "4- Modificacion de venta." << std::endl;
+        std::cout << "2- Listado de venta." << std::endl;
+        std::cout << "3- Modificacion de venta." << std::endl;
+        std::cout << "4- Consulta de venta." << std::endl;
+        std::cout << "5- Modificacion de precio de producto." << std::endl;
         std::cout << "0- Volver al menu principal." << std::endl;
         std::cout << "--------------------------" << std::endl;
         std::cin >> opcion;
 
         switch(opcion){
-            case 1:
+            case 1:{
                 std::cout << "Ingrese los siguientes datos de la venta: " << std::endl;
+                int opcionCarga=0;
+                vn.CargarVenta(Dv);
+                Av.guardarVenta(vn);
+                do {
+                Dv.cargarDetalledeVenta(vn.getIdVenta());
+                float subtotal = Dv.getSubtotal();
+                vn.setTotalVenta(subtotal);
+                Ad.guardarDetalledeVenta(Dv);
+                std::cout << "Desea agregar mas detalles de la venta? (1: Si, 0: No) " << std::endl;
+                std::cin>> opcion;
+                } while (opcion==1);
                 break;
+            }
             case 2:
-                std::cout << "Ingrese los siguientes datos del detalle de venta: " << std::endl;
-                break;
-            case 3:
+                system ("cls");
                 std::cout << "Listado de ventas: " << std::endl;
+                for (int i=0; i < Av.getCantidad() ; i++){
+                Av.MostrarVenta(Av.leer(i));
+
+        std::cout << "---------------------------------------------------------" <<std::endl;
+        std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
+        std::cout << "--------------------------------------------------------" <<std::endl;
+
+        float totalVenta=0.0;
+
+                for (int x=0; x < Ad.getCantidadDetalle() ; x++){
+                if (Ad.leerDetalle(x).getIdVentaDetalle()==Av.leer(i).getIdVenta()){
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(x));
+                    totalVenta+=Ad.leerDetalle(x).getSubtotal();
+                }
+                }
+                std::cout << "--------------------------------------------------------" <<std::endl;
+                std::cout <<"El total de la venta con el descuento es de: " << totalVenta << std::endl;
+                }
+                system ("pause");
                 break;
-            case 4:
+            case 3:{
                 std::cout << "Ingrese que venta desea modificar: " << std::endl;
+                int pos=Av.buscarVenta();
+                 if (pos>=0){
+                    vn.CargarVenta(Dv);
+                if (Av.modificarVenta(vn,pos)){
+                    std::cout << "Producto modificado correctamente." << std::endl;
+                }
+                else {
+                    system ("cls");
+                    std::cout << "No se pudo modificar el producto." << std::endl;
+                    system ("pause");
+                    system ("cls");
+                }
+
+                }
+                else {
+                        system ("cls");
+                    std::cout << "ID de producto no encontrado." << std::endl;
+                system ("pause");
+                system ("cls");
+                }
+
+
                 break;
+            }
+            case 4:{
+                system ("cls");
+                std::cout << "Ingrese la venta que desea consultar: " << std::endl;
+                int pos=Av.buscarVenta();
+                if (pos>=0){
+                Av.MostrarVenta(Av.leer(pos));
+
+                std::cout << "---------------------------------------------------------" <<std::endl;
+        std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
+        std::cout << "--------------------------------------------------------" <<std::endl;
+
+        float totalVenta=0.0;
+
+                for (int x=0; x < Ad.getCantidadDetalle() ; x++){
+                if (Ad.leerDetalle(x).getIdVentaDetalle()==Av.leer(pos).getIdVenta()){
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(x));
+                    totalVenta+=Ad.leerDetalle(x).getSubtotal();
+                    }
+                }
+                std::cout << "--------------------------------------------------------" <<std::endl;
+                std::cout <<"El total de la venta con el descuento es de: " << totalVenta << std::endl;
+                system ("pause");
+                break;
+                }
+
+
+                else {
+                    if (pos==-2){
+
+                        std::cout<< "No se pudo abir el archivo." << std::endl;
+                        system ("pause");
+                    }
+                    else {
+                          system ("cls");
+
+
+                        std::cout<< "No se pudo encontrar el ID del producto." << std::endl;
+                        system ("pause");
+                        system ("cls");
+                    }
+                }
+                system ("pause");
+                system ("cls");
+
+                break;
+            }
+
             case 0:
                 system ("cls");
                 break;
