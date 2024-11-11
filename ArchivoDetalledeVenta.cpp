@@ -6,9 +6,7 @@
 
 
 void ArchivoDetalledeVenta::MostrarDetalledeVenta(const Detalledeventa& detalledeventa) {
-    std::cout << "---------------------------------------------------------" <<std::endl;
-    std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
-    std::cout << "--------------------------------------------------------" <<std::endl;
+
     std::cout << detalledeventa.getIdVentaDetalle() << "            ";
     std::cout << detalledeventa.getNombreProducto() << "               ";
     std::cout << detalledeventa.getCantidad() << "        ";

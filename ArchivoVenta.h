@@ -3,12 +3,12 @@
 #pragma once
 
 
+
 class ArchivoVenta {
 
 public:
 
     ArchivoVenta();
-
     void MostrarVenta(const Venta &venta);
     int getCantidad();
     void guardarVenta(const Venta& venta);
@@ -21,3 +21,8 @@ private:
     std::string _fileName;
 
    };
+
+
+
+
+

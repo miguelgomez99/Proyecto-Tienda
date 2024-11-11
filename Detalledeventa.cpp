@@ -11,6 +11,7 @@
     _cantidadVenta=0;
     _precioUnitario=0.0;
     _subtotal=0.0;
+    _totalDetalleVenta=0.0;
 
     }
 
@@ -35,8 +36,12 @@
     }
 
 
-    void Detalledeventa::setSubtotal (float subtotal){
-        _subtotal=subtotal;
+    void Detalledeventa::setSubtotal (float precio, int cantidad){
+        _subtotal=precio*cantidad;
+    }
+
+    void Detalledeventa::setTotalDetalleVenta (float _subtotal){
+        _totalDetalleVenta+=_subtotal;
     }
 
 
@@ -67,7 +72,11 @@
         return _subtotal;
     }
 
-    void Detalledeventa::cargarDetalledeVenta (){
+    float Detalledeventa::getTotalDetalleVenta () const {
+        return _totalDetalleVenta;
+    }
+
+    void Detalledeventa::cargarDetalledeVenta (int IdVenta){
 
     char nombreProducto[20];
     int cantidadVenta;
@@ -75,7 +84,12 @@
     float subtotal;
     bool validacion=false, validacionPrecio=false;
 
-    std::cout << "Ingrese el nombre xd del producto: " << std::endl;
+    setIdVentaDetalle(IdVenta);
+
+    std::cout << "10% de descuento si se elige el modo de pago en efectivo: " << std::endl;
+
+
+    std::cout << "Ingrese el nombre del producto: " << std::endl;
     std::cin.ignore();
     std::cin>> nombreProducto;
     setNombreProducto(nombreProducto);
@@ -105,6 +119,8 @@
                     std::cout << "Ingrese una cantidad de articulos correcta..." << std::endl;
                 }
         }
+
+        setSubtotal (precioUnitario, cantidadVenta);
 
 
         system("cls");

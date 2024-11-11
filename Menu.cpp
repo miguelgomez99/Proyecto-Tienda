@@ -255,7 +255,9 @@
                 vn.CargarVenta(Dv);
                 Av.guardarVenta(vn);
                 do {
-                Dv.cargarDetalledeVenta();
+                Dv.cargarDetalledeVenta(vn.getIdVenta());
+                float subtotal = Dv.getSubtotal();
+                vn.setTotalVenta(subtotal);
                 Ad.guardarDetalledeVenta(Dv);
                 std::cout << "Desea agregar mas detalles de la venta? (1: Si, 0: No) " << std::endl;
                 std::cin>> opcion;
@@ -267,7 +269,21 @@
                 std::cout << "Listado de ventas: " << std::endl;
                 for (int i=0; i < Av.getCantidad() ; i++){
                 Av.MostrarVenta(Av.leer(i));
-                Ad.MostrarDetalledeVenta(Ad.leerDetalle(i+2));
+
+        std::cout << "---------------------------------------------------------" <<std::endl;
+        std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
+        std::cout << "--------------------------------------------------------" <<std::endl;
+
+        float totalVenta=0.0;
+
+                for (int x=0; x < Ad.getCantidadDetalle() ; x++){
+                if (Ad.leerDetalle(x).getIdVentaDetalle()==Av.leer(i).getIdVenta()){
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(x));
+                    totalVenta+=Ad.leerDetalle(x).getSubtotal();
+                }
+                }
+                std::cout << "--------------------------------------------------------" <<std::endl;
+                std::cout <<"El total de la venta con el descuento es de: " << totalVenta << std::endl;
                 }
                 system ("pause");
                 break;
@@ -279,14 +295,12 @@
                 if (Av.modificarVenta(vn,pos)){
                     std::cout << "Producto modificado correctamente." << std::endl;
                 }
-
                 else {
                     system ("cls");
                     std::cout << "No se pudo modificar el producto." << std::endl;
                     system ("pause");
                     system ("cls");
                 }
-
 
                 }
                 else {
@@ -305,8 +319,26 @@
                 int pos=Av.buscarVenta();
                 if (pos>=0){
                 Av.MostrarVenta(Av.leer(pos));
-                Ad.MostrarDetalledeVenta(Ad.leerDetalle(pos));
+
+                std::cout << "---------------------------------------------------------" <<std::endl;
+        std::cout << "ID Venta    Producto        Cantidad   Precio   Subtotal" << std::endl;
+        std::cout << "--------------------------------------------------------" <<std::endl;
+
+        float totalVenta=0.0;
+
+                for (int x=0; x < Ad.getCantidadDetalle() ; x++){
+                if (Ad.leerDetalle(x).getIdVentaDetalle()==Av.leer(pos).getIdVenta()){
+                Ad.MostrarDetalledeVenta(Ad.leerDetalle(x));
+                    totalVenta+=Ad.leerDetalle(x).getSubtotal();
+                    }
                 }
+                std::cout << "--------------------------------------------------------" <<std::endl;
+                std::cout <<"El total de la venta con el descuento es de: " << totalVenta << std::endl;
+                system ("pause");
+                break;
+                }
+
+
                 else {
                     if (pos==-2){
 

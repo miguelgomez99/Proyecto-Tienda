@@ -4,14 +4,50 @@
 #include "ArchivoDetalledeVenta.h"
 #include "Detalledeventa.h"
 
-Venta::Venta()
-{
+///FECHA
+ /*       Fecha::Fecha(int d, int m, int a){
+            dia=d;
+            mes=m;
+            anio=a;
+         }
+
+         void Fecha::Cargar(){
+            int d;
+            std::cout<<"DIA ";
+            std::cin>>d;
+            setDia(d);
+            std::cout<<"MES ";
+            std::cin>>mes;
+            std::cout<<"ANIO ";
+            std::cin>>anio;
+         }
+
+         void Fecha::Mostrar()const {
+    std::cout << dia << "/" << mes << "/" << anio << std::endl;
+}
+         void Fecha::setDia(int dia){
+             if(dia>=1 &&dia<=31)this->dia=dia;
+             else this->dia=0;
+             }
+        void Fecha::setMes(int m){mes=m;}
+        void Fecha::setAnio(int a){anio=a;}
+        ///getter
+        int Fecha::getDia() const{return dia;}
+        int Fecha::getMes() const{return mes;}
+        int Fecha::getAnio() const{return anio;}
+
+
+*/
+/// VENTA
+Venta::Venta(){
+
     _IdVenta=0;
     strcpy(_Email, "vacio");
     strcpy(_Email, "No elegido");
     _TotalVenta=0;
     _Estado=false;
     strcpy(_NombreCLiente, "vacio");
+
 
 }
 
@@ -113,7 +149,6 @@ Venta::Venta()
         while (validacionIdVenta!=true){
                 std::cin >> IdVenta;
                 if (IdVenta>0){
-                detalledeventa.setIdVentaDetalle(IdVenta);
                    setIdVenta(IdVenta);
                     validacionIdVenta=true;
                 }
@@ -121,6 +156,8 @@ Venta::Venta()
                     std::cout << "Ingrese un numero de ID correcto..." << std::endl;
                 }
         }
+
+
 
 
         system("cls");

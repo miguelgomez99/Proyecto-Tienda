@@ -2,6 +2,26 @@
 #include "Menu.h"
 #include "Detalledeventa.h"
 
+/*class Fecha{
+    private:
+        int dia, mes, anio;
+    public:
+        Fecha(int d, int m, int a);
+         void Cargar();
+         void Mostrar() const;
+        ///setters
+         void setDia(int dia);
+        void setMes(int m);
+        void setAnio(int a);
+        ///getters
+        int getDia() const;
+        int getMes() const;
+        int getAnio() const;
+
+
+};
+
+*/
 class Venta
 {
 
@@ -12,6 +32,7 @@ protected:
     float _TotalVenta;
     bool _Estado;
     char _NombreCLiente[100];
+
 
 public:
 

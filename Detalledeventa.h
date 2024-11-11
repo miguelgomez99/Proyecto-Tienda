@@ -11,6 +11,7 @@ protected:
     int _cantidadVenta;
     float _precioUnitario;
     float _subtotal;
+    float _totalDetalleVenta;
 
 public:
 
@@ -28,7 +29,9 @@ public:
 
     void setPrecioUnitario(int precio);
 
-    void setSubtotal (float subtotal);
+    void setSubtotal (float precio, int cantidad);
+
+    void setTotalDetalleVenta (float _subtotal);
 
 // Getters
 
@@ -44,17 +47,11 @@ public:
 
     float getSubtotal () const;
 
+    float getTotalDetalleVenta () const;
+
     // metodo
 
-    void cargarDetalledeVenta ();
-
-
-
-
-
-
-
-
+    void cargarDetalledeVenta (int IdVenta);
 
 
 };
