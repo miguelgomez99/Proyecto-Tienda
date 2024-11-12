@@ -84,9 +84,8 @@
     float subtotal;
     bool validacion=false, validacionPrecio=false;
 
-    setIdVentaDetalle(IdVenta);
 
-    std::cout << "10% de descuento si se elige el modo de pago en efectivo: " << std::endl;
+    setIdVentaDetalle(IdVenta);
 
 
     std::cout << "Ingrese el nombre del producto: " << std::endl;

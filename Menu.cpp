@@ -87,7 +87,6 @@
         switch(opcion){
             case 1:
                 system ("cls");
-                std::cout << "Ingrese los siguientes datos del producto: " << std::endl;
                 P.AgregarProducto();
                 AP.guardarProducto(P);
                 break;
@@ -102,7 +101,7 @@
 
             case 3:{
                 system ("cls");
-                std::cout << "Ingrese el producto a buscar:" << std::endl;
+                std::cout << "Ingrese el ID del producto a buscar:" << std::endl;
                 int pos=AP.buscarProducto();
                 if (pos>=0){
                 AP.MostrarProducto(AP.leer(pos));
@@ -183,7 +182,10 @@
                 system ("cls");
                 std::cout << "Mostrando listado de proveedores: " << std::endl;
                 for (int i=0; i < ap.getCantidad() ; i++){
-                    pr.MostrarProveedores(ap.leer(i));}
+                    pr.MostrarProveedores(ap.leer(i));
+                  std::cout << "------------------------------------------" << std::endl;
+                    }
+
                 system ("pause");
                 system ("cls");
                 break;
@@ -338,7 +340,6 @@
                 break;
                 }
 
-
                 else {
                     if (pos==-2){
 
@@ -430,8 +431,6 @@
         }
     } while(opcion!=0);
         }
-
-
 
     // SUBMENU REPORTES
         void Menu::AdminReportes(){

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Producto.h"
+#include "Venta.h"
 
 
     Producto::Producto(){
@@ -10,6 +11,7 @@
         _Precio=0.0;
         _Cantidad=0;
         _Cuit=0;
+        _fechaProducto = Fecha();
     }
 
 // Setters
@@ -64,19 +66,32 @@
       return  _Cuit;
     }
 
+    void Producto::cargarFechaProducto(){
+        _fechaProducto.Cargar();
+    }
+
+    void Producto::mostrarFechaProducto() const {
+        _fechaProducto.Mostrar();
+    }
+
+
+
+
     ///AGREGAR PRODUCTOS
 
     void Producto::AgregarProducto(){
 
     char nombreProducto[30];
     int  Codigo;
-    char Categoria[3];
+    int Categoria;
     float Precio;
     int Cantidad;
     int Cuit;
      bool validacionCodigo=false, validacionPrecio=false, validacionCantidad=false;
 
 
+        std::cout << "Ingrese la fecha de ingreso del producto:" << std::endl;
+        cargarFechaProducto();
 
         std::cout << "Ingrese el nombre del producto: " << std::endl;
         std::cin.ignore();
@@ -96,10 +111,30 @@
                 }
         }
 
-        std::cout << "Ingrese categoria: " << std::endl;
-        std::cin.ignore();
+        std::cout << "Seleccione la categoria del producto a agregar: " << std::endl;
+        std::cout << "1- Alimento." << std::endl;
+        std::cout << "2- Juguetes." << std::endl;
+        std::cout << "3- Accesorios." << std::endl;
+        std::cout << "4- Medicacion." << std::endl;
         std::cin>> Categoria;
-        setCategoria(Categoria);
+        switch (Categoria){
+    case 1:
+            setCategoria ("Alimento");
+            break;
+    case 2:
+            setCategoria ("Juguetes");
+            break;
+    case 3:
+            setCategoria ("Accesorios");
+            break;
+    case 4:
+            setCategoria ("Medicacion");
+            break;
+    default:
+
+        std::cout << "Ingrese una opcion valida... " << std::endl;
+
+        }
 
         std::cout << "Ingrese el precio del producto: " << std::endl;
          while (validacionPrecio!=true){

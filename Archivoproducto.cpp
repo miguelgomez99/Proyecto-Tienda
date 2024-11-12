@@ -169,13 +169,15 @@ int Archivoproducto::getCantidad(){
 
     // MOSTRAR PRODUCTO
 void Archivoproducto::MostrarProducto(const Producto &producto) {
+    std::cout << "Fecha de ingreso de producto: " <<std::endl;
+    producto.mostrarFechaProducto();
     std::cout << "Nombre del producto: " << producto.getNombreProducto() <<std::endl;
     std::cout << "Codigo del producto: " << producto.getCodigo() <<std::endl;
     std::cout << "Categoria del producto: " << producto.getCategoria() <<std::endl;
     std::cout << "Precio del producto: " << producto.getPrecio() <<std::endl;
     std::cout << "Cantidad del producto: " << producto.getCantidad() <<std::endl;
     std::cout << "Cuit de la empresa proveedora del producto: " << producto.getCuit() <<std::endl;
-
+    std::cout << "-----------------------------------------------------" <<std::endl;
 }
 
     // MODIFICAR PRODUCTO

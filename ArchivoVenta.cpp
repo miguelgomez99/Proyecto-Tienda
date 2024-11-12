@@ -1,4 +1,5 @@
 #include "ArchivoVenta.h"
+#include "Venta.h"
 
 ArchivoVenta::ArchivoVenta(){
     _fileName = "Venta.dat";
@@ -6,10 +7,13 @@ ArchivoVenta::ArchivoVenta(){
 
 void ArchivoVenta::MostrarVenta(const Venta &venta) {
     std::cout << "-----------------------------------------------" <<std::endl;
+    std::cout << "Fecha de ingreso: " <<std::endl;
+    venta.getFechaVenta().Mostrar();
     std::cout << "Nombre del cliente: " << venta.getNombre() <<std::endl;
     std::cout << "Correo electronico del cliente: " << venta.getEmail() <<std::endl;
     std::cout << "metodo de pago: " << venta.getFormadepago() <<std::endl;
     std::cout << "Id de venta: " << venta.getIdVenta() <<std::endl;
+
 }
 
 int ArchivoVenta::getCantidad(){

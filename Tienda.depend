@@ -17,15 +17,17 @@
 	<iostream>
 	"Menu.h"
 
-1731186714 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
+1731441857 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
+	"Venta.h"
 
-1731186714 c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.h
+1731441109 c:\users\migue\onedrive\escritorio\proyecto-tienda\producto.h
 	"Menu.h"
+	"Venta.h"
 
-1731186715 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\main.cpp
+1731293445 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\main.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -39,7 +41,7 @@
 
 1730397739 ated upstream
 
-1731291128 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
+1731441772 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -60,10 +62,10 @@
 	"Venta.h"
 	"ArchivoVenta.h"
 
-1731186714 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
+1731293445 c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.h
 	"Menu.h"
 
-1731186714 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
+1731293445 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\proveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
 	<cstring>
@@ -111,7 +113,7 @@
 	"Archivoproducto.h"
 	"Producto.h"
 
-1731186714 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.h
+1731293445 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.h
 	<string>
 	"Menu.h"
 
@@ -125,53 +127,54 @@
 	"Menu.h"
 	"Producto.h"
 
-1731186714 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
+1731441959 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
 	"Menu.h"
 	"archivoproducto.h"
 	<cstring>
 	<iostream>
 
-1731186715 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.h
+1731293445 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.h
 	"Menu.h"
 	"Producto.h"
 
-1731186714 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.cpp
+1731293445 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproveedores.cpp
 	"Menu.h"
 	"Proveedores.h"
 	"Archivoproveedores.h"
 	<cstring>
 	<iostream>
 
-1731280120 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\detalledeventa.cpp
+1731442179 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\detalledeventa.cpp
 	"Menu.h"
 	"Detalledeventa.h"
 	<cstring>
 
-1731290556 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\venta.cpp
+1731442194 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\venta.cpp
 	<iostream>
 	<cstring>
 	"Venta.h"
 	"ArchivoDetalledeVenta.h"
 	"Detalledeventa.h"
 
-1731290544 c:\users\migue\onedrive\escritorio\proyecto-tienda\venta.h
+1731354342 c:\users\migue\onedrive\escritorio\proyecto-tienda\venta.h
 	"Menu.h"
 	"Detalledeventa.h"
 
-1731269176 c:\users\migue\onedrive\escritorio\proyecto-tienda\detalledeventa.h
+1731293445 c:\users\migue\onedrive\escritorio\proyecto-tienda\detalledeventa.h
 	"Menu.h"
 
-1731186715 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoventa.cpp
+1731350150 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoventa.cpp
 	"ArchivoVenta.h"
+	"Venta.h"
 
-1731281587 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoventa.h
+1731292808 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoventa.h
 	"Menu.h"
 	"Venta.h"
 
-1731265527 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivodetalledeventa.cpp
+1731293445 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivodetalledeventa.cpp
 	"ArchivoDetalledeVenta.h"
 
-1731198952 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivodetalledeventa.h
+1731292807 c:\users\migue\onedrive\escritorio\proyecto-tienda\archivodetalledeventa.h
 	"Menu.h"
 	"Detalledeventa.h"
 

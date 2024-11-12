@@ -5,48 +5,67 @@
 #include "Detalledeventa.h"
 
 ///FECHA
- /*       Fecha::Fecha(int d, int m, int a){
-            dia=d;
-            mes=m;
-            anio=a;
+      Fecha::Fecha(){
+            _Dia=0;
+            _Mes=0;
+            _Anio=0;
          }
 
          void Fecha::Cargar(){
-            int d;
-            std::cout<<"DIA ";
+            int d, m, a;
+            std::cout<<"Dia: ";
             std::cin>>d;
             setDia(d);
-            std::cout<<"MES ";
-            std::cin>>mes;
-            std::cout<<"ANIO ";
-            std::cin>>anio;
+            std::cout<<"Mes: ";
+            std::cin>>m;
+            setMes(m);
+            std::cout<<"Anio: ";
+            std::cin>>a;
+            setAnio(a);
          }
 
          void Fecha::Mostrar()const {
-    std::cout << dia << "/" << mes << "/" << anio << std::endl;
+    std::cout << _Dia << "/" << _Mes << "/" << _Anio << std::endl;
 }
          void Fecha::setDia(int dia){
-             if(dia>=1 &&dia<=31)this->dia=dia;
-             else this->dia=0;
+             if(dia>=1 &&dia<=31){
+                _Dia=dia;
              }
-        void Fecha::setMes(int m){mes=m;}
-        void Fecha::setAnio(int a){anio=a;}
+             else {
+                _Dia=0;
+             }
+                ;
+             }
+        void Fecha::setMes(int mes){
+                if(mes>=1 &&mes<=12){
+                _Mes=mes;
+             }
+             else {}
+                _Mes=mes;
+                ;
+            _Mes=mes;}
+        void Fecha::setAnio(int anio){
+                if(anio>=1 &&anio<=31){
+                _Dia=anio;
+             }
+             else {}
+                _Anio=0;
+                ;
+            _Anio=anio;}
         ///getter
-        int Fecha::getDia() const{return dia;}
-        int Fecha::getMes() const{return mes;}
-        int Fecha::getAnio() const{return anio;}
+        int Fecha::getDia() const{return _Dia;}
+        int Fecha::getMes() const{return _Mes;}
+        int Fecha::getAnio() const{return _Anio;}
 
 
-*/
 /// VENTA
 Venta::Venta(){
 
     _IdVenta=0;
     strcpy(_Email, "vacio");
-    strcpy(_Email, "No elegido");
-    _TotalVenta=0;
-    _Estado=false;
+    strcpy(_Formadepago, "No elegido");
     strcpy(_NombreCLiente, "vacio");
+    _FechaVenta = Fecha();
 
 
 }
@@ -77,6 +96,10 @@ Venta::Venta(){
         strcpy (_NombreCLiente, NombreCLiente);
     }
 
+    void Venta::setFechaVenta(const Fecha &fecha) {
+    _FechaVenta = fecha;
+}
+
 // Getters
 
     int Venta::getIdVenta() const{
@@ -103,6 +126,12 @@ Venta::Venta(){
         return _NombreCLiente;
     }
 
+    Fecha Venta::getFechaVenta() const {
+    return _FechaVenta;
+}
+
+
+
 
     // Metodos
 
@@ -111,14 +140,16 @@ Venta::Venta(){
     int IdVenta;
     char Email[100];
     int Formadepago;
-    float TotalVenta;
-    bool Estado;
     char NombreCLiente[20];
     bool validacionIdVenta=false;
 
 
 
     std::cout << "--------------------------------------------------------- " << std::endl;
+
+    std::cout << "Ingrese la fecha de la venta:" << std::endl;
+    _FechaVenta.Cargar();
+
     std::cout << "Ingrese el nombre del cliente: " << std::endl;
     std::cin>> NombreCLiente;
     setNombre(NombreCLiente);
@@ -131,6 +162,7 @@ Venta::Venta(){
     std::cout << "Ingrese el metodo de pago del Venta: " << std::endl;
         std::cout << "1- Efectivo." << std::endl;
         std::cout << "2- Transferencia." << std::endl;
+        std::cout << "****10% de descuento si se elige el modo de pago en efectivo***" << std::endl;
         std::cin>> Formadepago;
         switch (Formadepago){
     case 1:
@@ -156,9 +188,6 @@ Venta::Venta(){
                     std::cout << "Ingrese un numero de ID correcto..." << std::endl;
                 }
         }
-
-
-
 
         system("cls");
     }

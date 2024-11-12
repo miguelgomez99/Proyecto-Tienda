@@ -1,5 +1,7 @@
 #pragma once
 #include "Menu.h"
+#include "Venta.h"
+
 
 class Producto {
 
@@ -10,13 +12,15 @@ protected:
     float _Precio;
     int _Cantidad;
     int _Cuit;
+    Fecha _fechaProducto;
 
 public:
 
 // Constructor
 
     Producto();
-    void AgregarProducto();
+
+
 
 // Setters
     void setNombreProducto (const char nombre[]);
@@ -45,6 +49,12 @@ public:
     int getCantidad () const;
 
     int getCuit () const;
+
+    void AgregarProducto();
+
+    void cargarFechaProducto();
+
+    void mostrarFechaProducto() const;
 
 
 };

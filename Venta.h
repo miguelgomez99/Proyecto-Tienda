@@ -2,11 +2,12 @@
 #include "Menu.h"
 #include "Detalledeventa.h"
 
-/*class Fecha{
+
+class Fecha{
     private:
-        int dia, mes, anio;
+        int _Dia, _Mes, _Anio;
     public:
-        Fecha(int d, int m, int a);
+        Fecha();
          void Cargar();
          void Mostrar() const;
         ///setters
@@ -18,10 +19,9 @@
         int getMes() const;
         int getAnio() const;
 
-
 };
 
-*/
+
 class Venta
 {
 
@@ -32,6 +32,7 @@ protected:
     float _TotalVenta;
     bool _Estado;
     char _NombreCLiente[100];
+    Fecha _FechaVenta;
 
 
 public:
@@ -53,6 +54,8 @@ public:
 
     void setNombre (const char NombreCLiente[]);
 
+    void setFechaVenta(const Fecha &fecha);
+
 // Getters
 
     int getIdVenta() const;
@@ -66,6 +69,8 @@ public:
     bool getEstado () const;
 
     const char* getNombre () const;
+
+     Fecha getFechaVenta() const;
 
 
     // metodos
