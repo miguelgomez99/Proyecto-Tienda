@@ -131,3 +131,37 @@ int ArchivoVenta::getCantidad(){
     return escribio;
 
     }
+
+
+   /* void ArchivoDetalledeVenta::periodoVentas (const char* fechaInicio,const char* fechaFin){
+    FILE *pFile;
+    pFile = fopen(_fileName.c_str(), "rb");
+    if (pFile == nullptr) {
+        std::cerr << "No se pudo abrir el archivo." << std::endl;
+        return;
+    }
+
+    ArchivoVenta venta;
+    bool ventasEncontradas = false;
+
+    std::cout << "Ventas registradas entre " << fechaInicio << " y " << fechaFin << ":\n";
+
+    while (fread(&venta, sizeof(ArchivoVenta), 1, pFile) == 1) {
+        const char* fechaVenta = venta.getFechaVenta();
+
+        if (strcmp(fechaVenta,fechaInicio)>=0 && strcmp(fechaVenta,fechaFin)<=0) {
+            ventasEncontradas = true;
+            ArchivoVenta.MostrarVenta();
+            ArchivoDetalledeVenta.MostrarDetalledeVenta();
+        }
+    }
+
+    fclose(pFile);
+
+    if (!ventasEncontradas) {
+        std::cout << "No se encontraron ventas en el periodo especificado." << std::endl;
+    }
+
+}
+
+*/

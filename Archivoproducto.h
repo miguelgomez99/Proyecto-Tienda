@@ -15,10 +15,11 @@ public:
 
   void guardarProducto(const Producto &producto);
   Producto leer(int pos);
-  int buscarProducto ();
+  int buscarProducto (int num);
   void MostrarProducto(const Producto &producto);
   bool modificarProducto (const Producto &producto, int pos);
   int getCantidad ();
+  void reporteCantidadPorCategoria();
 
 
 

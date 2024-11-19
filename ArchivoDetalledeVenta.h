@@ -15,6 +15,8 @@ public:
     Detalledeventa leerDetalle(int pos);
     int buscarDetallesPorVenta();
     bool modificarDetalledeVenta (const Detalledeventa &detalledeventa, int pos);
+    void reporteProductoMasVendido();
+
 
 private:
 

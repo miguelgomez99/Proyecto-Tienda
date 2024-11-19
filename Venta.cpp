@@ -12,50 +12,60 @@
          }
 
          void Fecha::Cargar(){
-            int d, m, a;
-            std::cout<<"Dia: ";
-            std::cin>>d;
-            setDia(d);
-            std::cout<<"Mes: ";
-            std::cin>>m;
-            setMes(m);
-            std::cout<<"Anio: ";
-            std::cin>>a;
-            setAnio(a);
-         }
+        int dia, mes, anio;
+        do {
+            std::cout << "Dia: ";
+            std::cin >> dia;
+             std::cout << "Mes: ";
+            std::cin >> mes;
+             std::cout << "Anio: ";
+            std::cin >> anio;
+
+        if (!ValidacionFecha(dia, mes, anio)) {
+                std::cout << "Fecha no valida. Por favor, ingresa una fecha correcta..." << std::endl;
+            }
+        } while (!ValidacionFecha(dia, mes, anio));
+
+        setDia(dia);
+        setMes(mes);
+        setAnio(anio);
+}
+
 
          void Fecha::Mostrar()const {
     std::cout << _Dia << "/" << _Mes << "/" << _Anio << std::endl;
 }
          void Fecha::setDia(int dia){
-             if(dia>=1 &&dia<=31){
                 _Dia=dia;
-             }
-             else {
-                _Dia=0;
-             }
-                ;
-             }
+            }
+
         void Fecha::setMes(int mes){
-                if(mes>=1 &&mes<=12){
                 _Mes=mes;
-             }
-             else {}
-                _Mes=mes;
-                ;
-            _Mes=mes;}
+}
         void Fecha::setAnio(int anio){
-                if(anio>=1 &&anio<=31){
-                _Dia=anio;
-             }
-             else {}
-                _Anio=0;
-                ;
-            _Anio=anio;}
+                _Anio=anio;
+}
+
         ///getter
         int Fecha::getDia() const{return _Dia;}
         int Fecha::getMes() const{return _Mes;}
         int Fecha::getAnio() const{return _Anio;}
+
+
+    bool Fecha::ValidacionFecha(int dia, int mes, int anio) {
+        if (mes < 1 || mes > 12) {return false;}
+        if (dia < 1 || dia > 31) {return false;}
+        if ((mes==2 && dia>29) || (mes==2 && dia==29 && ((anio % 4 != 0) || (anio % 100 == 0 && anio % 400 != 0)))) {
+            return false;
+        }
+        if ((mes==4 || mes==6 || mes==9 || mes==11) && dia>30) {
+            return false;
+        }
+        if (anio<2000 || anio>2024){
+            return false;
+        }
+        return true;
+    }
 
 
 /// VENTA

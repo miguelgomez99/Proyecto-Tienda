@@ -12,6 +12,7 @@
     _precioUnitario=0.0;
     _subtotal=0.0;
     _totalDetalleVenta=0.0;
+    strcpy(_categoriaVenta, "No elegido");
 
     }
 
@@ -44,6 +45,10 @@
         _totalDetalleVenta+=_subtotal;
     }
 
+    void Detalledeventa::setCategoriaVenta (const char categoria[]){
+         strcpy(_categoriaVenta, categoria);
+    }
+
 
 // Getters
 
@@ -55,6 +60,10 @@
 
     const char* Detalledeventa::getNombreProducto () const{
         return _nombreProducto;
+    }
+
+     const char* Detalledeventa::getCategoriaVenta () const{
+         return _categoriaVenta;
     }
 
 
@@ -79,6 +88,7 @@
     void Detalledeventa::cargarDetalledeVenta (int IdVenta){
 
     char nombreProducto[20];
+    int Categoria;
     int cantidadVenta;
     float precioUnitario;
     float subtotal;
@@ -86,6 +96,30 @@
 
 
     setIdVentaDetalle(IdVenta);
+
+        std::cout << "Seleccione la categoria del producto a vender: " << std::endl;
+        std::cout << "1- Alimento." << std::endl;
+        std::cout << "2- Juguetes." << std::endl;
+        std::cout << "3- Accesorios." << std::endl;
+        std::cout << "4- Medicacion." << std::endl;
+        std::cin>> Categoria;
+        switch (Categoria){
+    case 1:
+            setCategoriaVenta ("Alimento");
+            break;
+    case 2:
+            setCategoriaVenta ("Juguetes");
+            break;
+    case 3:
+            setCategoriaVenta ("Accesorios");
+            break;
+    case 4:
+            setCategoriaVenta ("Medicacion");
+            break;
+    default:
+        std::cout << "Ingrese una opcion valida... " << std::endl;
+
+        }
 
 
     std::cout << "Ingrese el nombre del producto: " << std::endl;

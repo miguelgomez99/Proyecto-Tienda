@@ -19,6 +19,8 @@ class Fecha{
         int getMes() const;
         int getAnio() const;
 
+        bool ValidacionFecha(int dia, int mes, int anio);
+
 };
 
 

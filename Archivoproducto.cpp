@@ -131,10 +131,24 @@ int Archivoproducto::getCantidad(){
 
 
     // BUSCAR PRODUCTO
-    int Archivoproducto::buscarProducto (){
+    int Archivoproducto::buscarProducto (int num){
 
-        int codigo;
-        std::cin >> codigo;
+        if (num==1){
+
+        std::cout << "Elija el filtro de busqueda: " << std::endl;
+        std::cout << "--------------------------" << std::endl;
+        std::cout << "1. Filtrar por categoria de producto."<< std::endl;
+        std::cout << "2. Filtrar por nombre de producto." << std::endl;
+        std::cout << "3. Filtrar por proveedor." << std::endl;
+
+        int opcion;
+        std::cin >> opcion;
+
+
+
+        switch (opcion){
+
+        case 1:{
 
         FILE *pBuscar;
         Producto producto;
@@ -147,21 +161,148 @@ int Archivoproducto::getCantidad(){
 
         return -2;
     }
+        std::cout << "Introduzca la categoria a buscar: " << std::endl;
+        std::cout << "--------------------------" << std::endl;
+        std::cout << "1- Alimento." << std::endl;
+        std::cout << "2- Juguetes." << std::endl;
+        std::cout << "3- Accesorios." << std::endl;
+        std::cout << "4- Medicacion." << std::endl;
+
+        int opcion;
+        std::cin >> opcion;
+        char categoria[30]="";
+
+        switch (opcion){
+        case 1:
+
+             strcpy(categoria,"Alimento");
+
+            break;
+        case 2:
+            strcpy(categoria,"Juguetes");
+            break;
+        case 3:
+            strcpy(categoria,"Accesorios");
+            break;
+        case 4:
+            strcpy(categoria,"Medicacion");
+            break;
+        default:
+            std::cout << "Introduzca una opcion correcta..." << std::endl;
+            break;
+
+        }
+
 
     while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
-            if (producto.getCodigo()==codigo){
+            if (strcmp(producto.getCategoria(),categoria)==0){
                 fclose(pBuscar);
                 return pos;
-
             }
             pos++;
     }
-
     std::cout << pos;
 
     fclose (pBuscar);
     return -1;
 
+            break;
+        }
+        case 2:{
+
+        FILE *pBuscar;
+        Producto producto;
+
+        int pos=0;
+
+        pBuscar = fopen (_fileName.c_str(), "rb");
+
+        if (pBuscar==nullptr){
+
+        return -2;
+    }
+        std::cout << "Introduzca el nombre de producto a buscar: " << std::endl;
+        char nombre[30];
+        std::cin >> nombre;
+
+    while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
+            if (strcmp(producto.getNombreProducto(),nombre)==0){
+                fclose(pBuscar);
+                return pos;
+            }
+            pos++;
+    }
+    std::cout << pos;
+
+    fclose (pBuscar);
+    return -1;
+
+            break;
+        }
+        case 3:{
+
+        FILE *pBuscar;
+        Producto producto;
+
+        int pos=0;
+
+        pBuscar = fopen (_fileName.c_str(), "rb");
+
+        if (pBuscar==nullptr){
+
+        return -2;
+    }
+        std::cout << "Introduzca el proveedor a buscar: " << std::endl;
+        char categoria[30];
+        std::cin >> categoria;
+
+    while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
+            if (producto.getCategoria()==categoria){
+                fclose(pBuscar);
+                return pos;
+            }
+            pos++;
+    }
+    std::cout << pos;
+
+    fclose (pBuscar);
+    return -1;
+
+            break;
+        }
+        default:
+
+            std::cout << "Elija una opcion correcta" << std::endl;
+            break;
+        }
+        }
+        else {
+
+        FILE *pBuscar;
+        Producto producto;
+
+        int pos=0;
+
+        pBuscar = fopen (_fileName.c_str(), "rb");
+
+        if (pBuscar==nullptr){
+
+        return -2;
+    }
+        std::cout << "Introduzca el ID de producto a modificar: " << std::endl;
+        int Id;
+        std::cin >> Id;
+
+    while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
+            if (producto.getCodigo()==Id){
+                fclose(pBuscar);
+                return pos;
+            }
+            pos++;
+    }
+    std::cout << pos;
+
+        }
     }
 
 
@@ -201,4 +342,66 @@ void Archivoproducto::MostrarProducto(const Producto &producto) {
 
 
     }
+
+    void Archivoproducto::reporteCantidadPorCategoria() {
+    FILE *pFile = fopen(_fileName.c_str(), "rb");
+    if (pFile == nullptr) {
+        std::cerr << "No se pudo abrir el archivo." << std::endl;
+        return;
+    }
+
+    const int maxProductosPorCategoria = 100; // Límite de productos por categoría
+    const char *categorias[4] = {"Alimento", "Juguetes", "Accesorios", "Medicacion"}; // Categorías fijas
+    char productos[4][maxProductosPorCategoria][30]; // Productos por categoría
+    int cantidadPorProducto[4][maxProductosPorCategoria] = {0}; // Cantidades por producto
+    int numProductosPorCategoria[4] = {0}; // Número de productos por categoría
+    int totalCantidadPorCategoria[4] = {0}; // Total acumulado por categoría
+
+    Producto producto;
+
+    while (fread(&producto, sizeof(Producto), 1, pFile) == 1) {
+        // Buscar la categoría correspondiente
+        for (int i = 0; i < 4; i++) {
+            if (strcmp(producto.getCategoria(), categorias[i]) == 0) {
+                // Sumar al total de la categoría
+                totalCantidadPorCategoria[i] += producto.getCantidad();
+
+                // Verificar si el producto ya existe en la categoría
+                bool productoExistente = false;
+                for (int j = 0; j < numProductosPorCategoria[i]; j++) {
+                    if (strcmp(productos[i][j], producto.getNombreProducto()) == 0) {
+                        cantidadPorProducto[i][j] += producto.getCantidad();
+                        productoExistente = true;
+                        break;
+                    }
+                }
+
+                // Si el producto no existe, agregarlo
+                if (!productoExistente && numProductosPorCategoria[i] < maxProductosPorCategoria) {
+                    strcpy(productos[i][numProductosPorCategoria[i]], producto.getNombreProducto());
+                    cantidadPorProducto[i][numProductosPorCategoria[i]] = producto.getCantidad();
+                    numProductosPorCategoria[i]++;
+                }
+                break; // Salir del bucle de categorías
+            }
+        }
+    }
+
+    fclose(pFile);
+
+    // Imprimir el reporte
+    std::cout << "Reporte de cantidad por categoria y productos:" <<std::endl;
+    for (int i = 0; i < 4; i++) {
+        std::cout << "Categoria: " << categorias[i] << std::endl;
+        std::cout << "Total en stock: " << totalCantidadPorCategoria[i] << std::endl;;
+
+        for (int j = 0; j < numProductosPorCategoria[i]; j++) {
+            std::cout << "    Producto: " << productos[i][j]
+                      << ", Cantidad: " << cantidadPorProducto[i][j] << std::endl;;
+        }
+        std::cout << "---------------------------------" << std::endl;
+    }
+}
+
+
 

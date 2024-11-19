@@ -1,4 +1,6 @@
 #include "ArchivoDetalledeVenta.h"
+#include "ArchivoVenta.h"
+#include <cstring>
 
     ArchivoDetalledeVenta::ArchivoDetalledeVenta(){
     _fileName = "DetalledeVenta.dat";
@@ -6,8 +8,8 @@
 
 
 void ArchivoDetalledeVenta::MostrarDetalledeVenta(const Detalledeventa& detalledeventa) {
-
-    std::cout << detalledeventa.getIdVentaDetalle() << "            ";
+    std::cout << detalledeventa.getIdVentaDetalle() << "           ";
+    std::cout << detalledeventa.getCategoriaVenta() << "        ";
     std::cout << detalledeventa.getNombreProducto() << "               ";
     std::cout << detalledeventa.getCantidad() << "        ";
     std::cout << detalledeventa.getPrecioUnitario() << "       ";
@@ -153,4 +155,70 @@ int ArchivoDetalledeVenta::getCantidadDetalle(){
     return escribio;
 
     }
+
+    void ArchivoDetalledeVenta::reporteProductoMasVendido() {
+    FILE *pFile;
+    pFile = fopen(_fileName.c_str(), "rb");
+    if (pFile == nullptr) {
+        std::cout << "No se pudo abrir el archivo." << std::endl;
+        return;
+    }
+
+    char masVendido[30]="";
+    int masCantidad=0;
+
+    const int maxCategorias = 100; // Límite de categorías para el ejemplo
+    char categorias[maxCategorias][30]; // Arreglo para nombres de categorías
+    int cantidades[maxCategorias] = {0}; // Arreglo para cantidades acumuladas
+    int numCategorias = 0;
+
+    Detalledeventa venta;
+    bool categoriaExistente;
+
+    // Leer cada producto y acumular la cantidad en su categoría
+    while (fread(&venta, sizeof(Detalledeventa), 1, pFile) == 1) {
+        categoriaExistente = false;
+
+        // Verificar si la categoría ya está en el arreglo
+        for (int i = 0; i < numCategorias; i++) {
+            if (strcmp(categorias[i], venta.getCategoriaVenta()) == 0) {
+                cantidades[i] += venta.getCantidad();
+                categoriaExistente = true;
+                break;
+            }
+        }
+
+        // Si la categoría no existe, se agrega como nueva
+        if (!categoriaExistente && numCategorias < maxCategorias) {
+            strcpy(categorias[numCategorias], venta.getCategoriaVenta());
+            cantidades[numCategorias] = venta.getCantidad();
+            numCategorias++;
+        }
+    }
+
+    fclose(pFile);
+
+      if (numCategorias == 0) {
+        std::cout << "No hay productos vendidos." << std::endl;
+        return;
+    }
+
+    // Imprimir el reporte de categorías y cantidades acumuladas
+
+
+    for (int i = 0; i < numCategorias; i++) {
+        if (cantidades[i]>masCantidad){
+            strcpy(masVendido,categorias[i] );
+            masCantidad=cantidades[i];
+        }
+    }
+
+    std::cout << "La categoria del producto mas vendido es la de:" << masVendido << std::endl;
+    std::cout << "Con una cantidad de:" << masCantidad << std::endl;
+
+}
+
+
+
+
 

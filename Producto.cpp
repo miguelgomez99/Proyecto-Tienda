@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 #include "Producto.h"
 #include "Venta.h"
 
@@ -13,6 +14,7 @@
         _Cuit=0;
         _fechaProducto = Fecha();
     }
+
 
 // Setters
     void Producto::setNombreProducto (const char nombre[]){
@@ -37,6 +39,10 @@
 
     void Producto::setCuit (int cuit){
         _Cuit=cuit;
+    }
+
+        void Producto::cargarFechaProducto(){
+        _fechaProducto.Cargar();
     }
 
 
@@ -66,9 +72,7 @@
       return  _Cuit;
     }
 
-    void Producto::cargarFechaProducto(){
-        _fechaProducto.Cargar();
-    }
+
 
     void Producto::mostrarFechaProducto() const {
         _fechaProducto.Mostrar();
@@ -82,12 +86,12 @@
     void Producto::AgregarProducto(){
 
     char nombreProducto[30];
-    int  Codigo;
     int Categoria;
     float Precio;
     int Cantidad;
     int Cuit;
      bool validacionCodigo=false, validacionPrecio=false, validacionCantidad=false;
+     int codigo;
 
 
         std::cout << "Ingrese la fecha de ingreso del producto:" << std::endl;
@@ -98,18 +102,17 @@
         std::cin>> nombreProducto;
         setNombreProducto(nombreProducto);
 
-
-        std::cout << "Ingrese el codigo: " << std::endl;
+        std::cout << "Ingrese el codigo del producto: " << std::endl;
         while (validacionCodigo!=true){
-                std::cin >> Codigo;
-                if (Codigo>0){
-                    setCodigo(Codigo);
+                std::cin >> codigo;
+                if (codigo>0){
+                    setCodigo(codigo);
                     validacionCodigo=true;
                 }
                 else {
-                    std::cout << "Ingrese un numero de codigo correcto..." << std::endl;
+                    std::cout << "Ingrese una cantidad real..." << std::endl;
                 }
-        }
+                }
 
         std::cout << "Seleccione la categoria del producto a agregar: " << std::endl;
         std::cout << "1- Alimento." << std::endl;

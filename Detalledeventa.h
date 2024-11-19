@@ -8,6 +8,7 @@ class Detalledeventa
 protected:
     int _IdVentaDetalle;
     char _nombreProducto[20];
+    char _categoriaVenta[20];
     int _cantidadVenta;
     float _precioUnitario;
     float _subtotal;
@@ -33,6 +34,8 @@ public:
 
     void setTotalDetalleVenta (float _subtotal);
 
+    void setCategoriaVenta (const char categoria[]);
+
 // Getters
 
     int getIdDetalle() const;
@@ -40,6 +43,8 @@ public:
     int getIdVentaDetalle() const;
 
     const char* getNombreProducto () const;
+
+    const char* getCategoriaVenta () const;
 
     int getCantidad() const;
 
