@@ -102,23 +102,18 @@
             case 3:{
                 system ("cls");
                 int pos=AP.buscarProducto(1);
-                if (pos>=0){
-                AP.MostrarProducto(AP.leer(pos));
-                }
-                else {
                     if (pos==-2){
 
                         std::cout<< "No se pudo abir el archivo." << std::endl;
                         system ("pause");
                     }
                     else {
-                          system ("cls");
+                          if (pos==-1){
+                        system ("cls");
                         std::cout<< "No se pudo encontrar los datos del producto." << std::endl;
                         system ("pause");
-                        system ("cls");
+                          }
                     }
-                }
-                system ("pause");
                 system ("cls");
 
                 break;

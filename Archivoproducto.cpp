@@ -133,6 +133,8 @@ int Archivoproducto::getCantidad(){
     // BUSCAR PRODUCTO
     int Archivoproducto::buscarProducto (int num){
 
+        bool datoEncontrado=false;
+
         if (num==1){
 
         std::cout << "Elija el filtro de busqueda: " << std::endl;
@@ -187,6 +189,7 @@ int Archivoproducto::getCantidad(){
         case 4:
             strcpy(categoria,"Medicacion");
             break;
+
         default:
             std::cout << "Introduzca una opcion correcta..." << std::endl;
             break;
@@ -196,15 +199,19 @@ int Archivoproducto::getCantidad(){
 
     while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
             if (strcmp(producto.getCategoria(),categoria)==0){
-                fclose(pBuscar);
-                return pos;
+                MostrarProducto(leer(pos));
+                datoEncontrado=true;
             }
             pos++;
+
     }
-    std::cout << pos;
+    system ("pause");
 
     fclose (pBuscar);
-    return -1;
+
+        if (!datoEncontrado){
+            return -1;
+        }
 
             break;
         }
@@ -227,15 +234,18 @@ int Archivoproducto::getCantidad(){
 
     while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
             if (strcmp(producto.getNombreProducto(),nombre)==0){
-                fclose(pBuscar);
-                return pos;
+                MostrarProducto(leer(pos));
+                datoEncontrado=true;
             }
             pos++;
     }
-    std::cout << pos;
+
+    system("pause");
 
     fclose (pBuscar);
-    return -1;
+         if (!datoEncontrado){
+            return -1;
+        }
 
             break;
         }
@@ -252,21 +262,23 @@ int Archivoproducto::getCantidad(){
 
         return -2;
     }
-        std::cout << "Introduzca el proveedor a buscar: " << std::endl;
-        char categoria[30];
-        std::cin >> categoria;
+        std::cout << "Introduzca el cuit de proveedor a buscar: " << std::endl;
+        int cuit;
+        std::cin >> cuit;
 
     while (fread(&producto, sizeof(Producto), 1, pBuscar)==1){
-            if (producto.getCategoria()==categoria){
-                fclose(pBuscar);
-                return pos;
+            if (producto.getCuit()==cuit){
+                MostrarProducto(leer(pos));
+                datoEncontrado=true;
             }
             pos++;
     }
-    std::cout << pos;
-
+    system("pause");
     fclose (pBuscar);
-    return -1;
+
+            if (!datoEncontrado){
+            return -1;
+        }
 
             break;
         }

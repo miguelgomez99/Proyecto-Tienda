@@ -42,7 +42,7 @@
 
 1730397739 ated upstream
 
-1731969164 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
+1732044195 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\menu.cpp
 	<iostream>
 	"Menu.h"
 	"Proveedores.h"
@@ -128,7 +128,7 @@
 	"Menu.h"
 	"Producto.h"
 
-1732030845 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
+1732044080 source:c:\users\migue\onedrive\escritorio\proyecto-tienda\archivoproducto.cpp
 	"Menu.h"
 	"archivoproducto.h"
 	<cstring>
